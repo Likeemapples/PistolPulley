@@ -8,7 +8,7 @@ if (not global.paused) {
 		y -= 1;
 	}
 
-	if (mouse_check_button_pressed(mb_any) and cooldowntimer >= room_speed) {
+	if (mouse_check_button_pressed(mb_any) and cooldowntimer >= room_speed and obj_Screens.currentScreen == screen.castle) {
 		audio_play_sound(snd_Shoot,1,false);
 		var _inst = instance_create_layer(x,y+8,"Instances", obj_Ball);
 

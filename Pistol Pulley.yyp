@@ -29,6 +29,7 @@
     {"id":{"name":"spr_Ropes","path":"sprites/spr_Ropes/spr_Ropes.yy",},"order":2,},
     {"id":{"name":"spr_Wings","path":"sprites/spr_Wings/spr_Wings.yy",},"order":2,},
     {"id":{"name":"obj_Enemy","path":"objects/obj_Enemy/obj_Enemy.yy",},"order":3,},
+    {"id":{"name":"fnt_PerfectDos","path":"fonts/fnt_PerfectDos/fnt_PerfectDos.yy",},"order":0,},
     {"id":{"name":"snd_Hurt","path":"sounds/snd_Hurt/snd_Hurt.yy",},"order":2,},
     {"id":{"name":"snd_ScreenSlide","path":"sounds/snd_ScreenSlide/snd_ScreenSlide.yy",},"order":4,},
     {"id":{"name":"spr_Slot","path":"sprites/spr_Slot/spr_Slot.yy",},"order":6,},

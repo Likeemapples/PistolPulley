@@ -9,7 +9,6 @@ enum screen {
 }
 
 currentScreen = screen.castle;
-lastScreen = currentScreen;
 
 
 
