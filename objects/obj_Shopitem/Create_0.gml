@@ -1,11 +1,12 @@
 itemDescriptions = [
-	" +Fighting \n +Falling \n -Pierce ", // Querri
-	" +Damage \n -BallSpeed ", // Big
-	" +BallSpeed \n -Damage \n +Fire ", // Fire
-	" +Rebound ", // Boomerang
-	" +Explosion \n Pierce->Radius ", // Bomb
-	" +BallSpeed \n +Damage \n -Predictability ", // Laser
-	" +Sticky \n -Speed " // Slime
+	" Falls down and fights for you \n Fighting for a princess that doesn't exist ", // Querri
+	"  \n Only second to you mother ", // Big
+	"  \n Non-OSHA compliant ", // Fire
+	" Its a boomerang! \n Dont forget to duck! ", // Boomerang
+	"  \n Shouldn't it explode when we fire it? ", // Bomb
+	"  \n Not for use with felines ", // Laser
+	"  \n League player ", // Slime
+	"  \n Likes other balls " // Rainball // Make sure to credit mattias
 ]
 
 image_index = array_length(itemDescriptions) - 1;
