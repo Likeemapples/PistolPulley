@@ -23,7 +23,7 @@ if (viewx != currentScreen*96) {
 	
 }
 
-camera_set_view_pos(view_camera[0], viewx, 0)
+camera_set_view_pos(view_camera[0], viewx, 0);
 
 
 
