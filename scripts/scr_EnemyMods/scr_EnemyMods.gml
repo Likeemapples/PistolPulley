@@ -76,7 +76,7 @@ function Wings() : Enemy() constructor {
 }
 
 function Legs() : Enemy() constructor {
-	spd = 0.25;
+	spd = 0.125;
 	hp = 10;
 	legs = true;
 	
