@@ -1,12 +1,16 @@
 itemDescriptions = [
 	" Falls down and fights for you \n Fighting for a princess that doesn't exist ", // Querri
-	"  \n Only second to you mother ", // Big
-	"  \n Non-OSHA compliant ", // Fire
+	" Very big \n Only second to you mother ", // Big
+	" Rains fire on your enemies \n Non-OSHA compliant ", // Fire
 	" Its a boomerang! \n Dont forget to duck! ", // Boomerang
-	"  \n Shouldn't it explode when we fire it? ", // Bomb
-	"  \n Not for use with felines ", // Laser
-	"  \n League player ", // Slime
-	"  \n Likes other balls " // Rainball // Make sure to credit mattias
+	" Explodes. Pierce -> Radius \n Shouldn't it explode when we fire it? ", // Bomb
+	" Major speed increase \n Not for use with felines ", // Laser
+	" Slows down anything it touches \n League player ", // Slime
+	" Occasional high damage rain \n Only an ally ", // Rainball 
+	"  \n  ", // Pinball
+	"  \n  ", // Necroball
+	"  \n  ", // Wombo Comball
+	"  \n  " // Ice Trail
 ]
 
 image_index = array_length(itemDescriptions) - 1;
