@@ -10,7 +10,7 @@ itemDescriptions = [
 	"  \n  ", // Pinball
 	"  \n  ", // Necroball
 	"  \n  ", // Wombo Comball
-	"  \n  " // Ice Trail
+	"  \n  " // Snowball
 ]
 
 image_index = array_length(itemDescriptions) - 1;
