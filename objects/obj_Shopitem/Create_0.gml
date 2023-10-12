@@ -7,7 +7,7 @@ itemDescriptions = [
 	" Major speed increase ", // Laser
 	" Slows down anything it touches ", // Slime
 	" Turns enemies to your side ", // Necroball
-	"  ", // Pinball
+	" Bouces between enemies ", // Pinball
 	" Occasional high damage rain ", // Rainball 
 	"  ", // Wombo Comball
 	"  " // Snowball

@@ -33,7 +33,7 @@ function Normal() : Enemy() constructor {
 		setup = true;
 		
 		
-		if (me.y > 69) me.y --;
+		if (me.y > 69) me.y -= spd;
 		else {
 			if (me.x < destx) {
 				me.x += 1;
@@ -98,7 +98,7 @@ function Legs() : Enemy() constructor {
 		setup = true;
 		
 		// Rise and Shine loser, its time to run
-		if (me.y > 69) me.y --;
+		if (me.y > 69) me.y -= spd;
 		else {
 			// stand still 1/2, switch direction 1/2
 			if (me.x <= 96+17) dir = 1;
