@@ -93,11 +93,15 @@ function Legs() : Enemy() constructor {
 		// Rise and Shine loser, its time to run
 		if (me.y > 69) me.y --;
 		else {
+			// stand still 1/2, switch direction 1/2
 			if (me.x <= 96+17) dir = 1;
 			else if (me.x >= 96+77) dir = -1;
 			
 			me.image_xscale = -dir;
-			me.x += spd * dir;
+			if (me.image_index >= 1 and me.image_index < 2) {
+				if (irandom_range(0,1) == 1) me.x += spd * dir;
+				else if (irandom_range(0,1) == 1) dir = -dir;
+			}
 		}
 		
 		// Throw enemies
