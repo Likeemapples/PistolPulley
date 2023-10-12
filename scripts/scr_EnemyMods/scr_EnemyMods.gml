@@ -26,21 +26,28 @@ function Normal() : Enemy() constructor {
 	destx = irandom_range(96+17,96+77)
 	setup = false;
 	update = function(me) {
-		if (not setup) me.x = 96;
+		if (not setup) {
+			me.x = irandom_range(96+17,96+77);
+			me.y = 80;
+		}
 		setup = true;
 		
-		if (me.x < destx) {
-			me.x += 1;
-			me.image_index = 0;
-			me.image_speed = 0;
-		}
-		else startclimb = true;
+		
+		if (me.y > 69) me.y --;
+		else {
+			if (me.x < destx) {
+				me.x += 1;
+				me.image_index = 0;
+				me.image_speed = 0;
+			}
+			else startclimb = true;
 
-		if (startclimb) {
-			me.y -= spd;
-			me.image_speed = 1;
-			with (me) {
-				animate_range(1,2);
+			if (startclimb) {
+				me.y -= spd;
+				me.image_speed = 1;
+				with (me) {
+					animate_range(1,2);
+				}
 			}
 		}
 	}
