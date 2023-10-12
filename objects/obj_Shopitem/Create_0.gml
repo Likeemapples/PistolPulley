@@ -1,20 +1,34 @@
 itemDescriptions = [
-	" Falls down and fights for you \n Fighting for a princess that doesn't exist ", // Querri
-	" Very big \n Only second to you mother ", // Big
-	" Rains fire on your enemies \n Non-OSHA compliant ", // Fire
-	" Its a boomerang! \n Dont forget to duck! ", // Boomerang
-	" Explodes. Pierce -> Radius \n Shouldn't it explode when we fire it? ", // Bomb
-	" Major speed increase \n Not for use with felines ", // Laser
-	" Slows down anything it touches \n League player ", // Slime
-	" Occasional high damage rain \n Only an ally ", // Rainball 
-	"  \n  ", // Pinball
-	"  \n  ", // Necroball
-	"  \n  ", // Wombo Comball
-	"  \n  " // Snowball
+	" Falls down and fights for you ", // Querri
+	" Very big ", // Big
+	" Rains fire on your enemies ", // Fire
+	" Its a boomerang! ", // Boomerang
+	" Explodes. Pierce -> Radius ", // Bomb
+	" Major speed increase ", // Laser
+	" Slows down anything it touches ", // Slime
+	" Turns enemies to your side ", // Necroball
+	"  ", // Pinball
+	" Occasional high damage rain ", // Rainball 
+	"  ", // Wombo Comball
+	"  " // Snowball
 ]
 
-image_index = array_length(itemDescriptions) - 1;
-description = itemDescriptions[image_index];
+flavorText = [
+	" Following his dreams ", // Querri
+	" Only second to your mother ", // Big
+	" Non-OSHA compliant ", // Fire
+	" Main cause of operator deaths ", // Boomerang
+	" Not your average IED ", // Bomb
+	" Not for use with felines ", // Laser
+	" League player ", // Slime
+	"  ", // Necroball
+	"  ", // Pinball
+	" Only an ally ", // Rainball 
+	" Happy feet ", // Wombo Comball
+	"  " // Snowball
+]
+
+image_index = irandom_range(0, array_length(itemDescriptions) - 1);
 
 shopitems = [inst_6E22E29, inst_6D875815, inst_1AFB15E5];
 

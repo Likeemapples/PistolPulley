@@ -32,7 +32,6 @@ if (not global.paused) {
 		global.enemiesKilled = 0;
 		global.roundRequirement = round(global.roundRequirement * 1.2);
 	}
-	print(global.enemiesKilled, global.roundRequirement)
 
 	summontimer--;
 	if (summontimer <= 0 and instance_number(obj_Enemy) < 10 and roundtimer >= room_speed*20) {

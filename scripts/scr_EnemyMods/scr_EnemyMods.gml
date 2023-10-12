@@ -98,10 +98,11 @@ function Legs() : Enemy() constructor {
 			else if (me.x >= 96+77) dir = -1;
 			
 			me.image_xscale = -dir;
-			if (me.image_index >= 1 and me.image_index < 2) {
+			if (me.image_index == 1) {
 				if (irandom_range(0,1) == 1) me.x += spd * dir;
 				else if (irandom_range(0,1) == 1) dir = -dir;
 			}
+			else if (me.image_index < 1 or me.image_index > 10) me.x += spd * dir;
 		}
 		
 		// Throw enemies
