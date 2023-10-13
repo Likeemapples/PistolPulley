@@ -37,6 +37,13 @@ function make_random_ball() {
 				array_push(image, 8);
 				_repeat = false;
 			}
+			else if (_rand == 4 and find_in_array(image, 4) == -1) {
+				array_push(ball, new Ball());
+				array_push(ball, new Boomerang());
+			
+				array_push(image, 4);
+				_repeat = false;
+			}
 			else {
 				array_push(ball, new Ball());
 				

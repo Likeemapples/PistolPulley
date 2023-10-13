@@ -17,10 +17,14 @@ if (_enemy != noone) {
 		_touched = true;
 	}
 	if (not _touched) {
+		
 		array_push(touched, self);
 		audio_play_sound(snd_EnemyDie,1,false);
 		global.enemiesKilled ++;
 		with (_enemy) {
+			if (array_length(other.touched) > 0) {
+				global.money += 1;
+			}
 			var _hp = hp;
 			hp -= other.dmg;
 			other.dmg -= _hp;

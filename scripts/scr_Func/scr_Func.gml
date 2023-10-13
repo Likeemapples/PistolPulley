@@ -1,4 +1,6 @@
 global.hp = 3;
+global.money = 0;
+
 global.enemiesKilled = 0;
 global.roundRequirement = 10;
 

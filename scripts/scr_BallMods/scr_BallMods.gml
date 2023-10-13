@@ -33,9 +33,10 @@ function Ball() : Base() constructor {
 	dmg = 0;
 	img = 0;
 	
+	dir = 1;
 	update = function(me) {
 		var _dt = delta_time / 1000000;
-		me.x -= me.spd*_dt;		
+		me.x -= (me.spd*_dt) * dir;		
 	}	
 }
 
@@ -51,7 +52,6 @@ function Querri() : Base() constructor {
 			me.spd = 0;
 			falling = true;
 		}
-		
 		
 		if (position_meeting(me.x,me.y+grav,obj_Floor)) {
 			falling = false;
@@ -126,3 +126,16 @@ function Big() : Base() constructor {
 	
 }
 	
+function Boomerang() : Base() constructor {
+	spd = 20;
+	dmg = 2.5;
+	img = 0;
+	
+	update = function(me) {
+		me.image_angle += 10;
+		if (me.x < 96+30) {
+			if (me.spd != -20) me.spd -= 1;
+		}
+	}
+}
+
