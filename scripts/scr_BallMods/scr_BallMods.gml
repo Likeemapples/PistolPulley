@@ -120,8 +120,12 @@ function Big() : Base() constructor {
 	}
 	
 	qSpd = 0.5;
+	setup = false;
 	qose = function(me) {
-		me.scale = 3;
+		if (not setup) {
+			me.scale *= 3;
+			setup = true;
+		}
 	}
 	
 }
@@ -137,5 +141,14 @@ function Boomerang() : Base() constructor {
 			if (me.spd != -20) me.spd -= 1;
 		}
 	}
+	
+	setup = false;
+	qose = function(me) {
+		if (not setup) {
+			me.scale *= -1;
+			setup = true;
+		}
+	}
+	
 }
 
