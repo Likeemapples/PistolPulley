@@ -7,6 +7,43 @@ cooldowntimer = room_speed;
 summontimer = room_speed/2;
 roundtimer = room_speed*20;
 
+
+
+function make_random_bal() {
+	ball = [];
+	image = [];
+	
+	if (array_length(global.unlockedBalls) > 1) {
+		
+		for (var i = 0; i < array_length(global.unlockedBalls); i++) {
+		
+			var _repeat = true;
+			while (_repeat) {
+				
+				var _rand = irandom_range(0,9+array_length(global.unlockedBalls)); // One more in the hat
+				
+				if (_rand < 10) {
+					array_push(ball, new Ball());
+					array_push(image, ballnum.normal);
+				}
+				
+				
+			}
+		
+		}
+		
+	}
+	else {
+		
+		array_push(ball, new Ball());
+		array_push(image, ballnum.normal);
+		
+	}
+	
+}
+
+
+
 function make_random_ball() {
 	ball = [];
 	image = [];
