@@ -62,6 +62,7 @@ function Querri() : Base() constructor {
 			instance_destroy(me);
 		}
 		if (falling) {
+			print(grav, dmg)
 			grav += 0.1;
 			me.y += grav;
 		}
@@ -139,14 +140,6 @@ function Boomerang() : Base() constructor {
 		me.image_angle += 10;
 		if (me.x < 96+30) {
 			if (me.spd != -20) me.spd -= 1;
-		}
-	}
-	
-	setup = false;
-	qose = function(me) {
-		if (not setup) {
-			me.scale *= -1;
-			setup = true;
 		}
 	}
 	
