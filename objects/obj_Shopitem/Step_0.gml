@@ -1,8 +1,9 @@
 
+price = prices[image_index]*multiplier;
 // Hovering
 if (position_meeting(mouse_x, mouse_y, self)) {
 	// Clicked on
-	if (mouse_check_button_pressed(mb_any) and global.money >= prices[image_index]) {
+	if (mouse_check_button_pressed(mb_any) and global.money >= price) {
 		switch (image_index) {
 			case 0:
 				array_push(global.unlockedBalls,ballnum.querri);
@@ -17,7 +18,7 @@ if (position_meeting(mouse_x, mouse_y, self)) {
 				array_push(global.unlockedBalls,ballnum.boomerang);
 				break;				
 		}
-		global.money -= prices[image_index];
+		global.money -= prices;
 		roll_shop()
 	}
 	

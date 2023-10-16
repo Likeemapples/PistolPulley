@@ -31,7 +31,7 @@ flavorText = [
 prices = [
 	100, // Querri
 	100, // Big
-	200, // Fire
+	100, // Fire
 	100, // Boomerang
 	1000, // Bomb
 	1000, // Laser
@@ -43,15 +43,21 @@ prices = [
 	1000 // Snowball
 ]
 
+
+multiplier = 1;
+price = 0;
+
 shopitems = [inst_6E22E29, inst_6D875815, inst_1AFB15E5];
 
 function roll_shop() {
 	// Shopitems
+	var _rand = irandom_range(0,3);
 	images = [];
 	for (var i = 0; i < array_length(shopitems); i++) {
-		shopitems[i].image_index = irandom_range(0,8);
+		shopitems[i].image_index =  _rand;
 		while (find_in_array(images, shopitems[i].image_index) != -1) {
-			shopitems[i].image_index = irandom_range(0,8);
+			var _rand = irandom_range(0,3);
+			shopitems[i].image_index = _rand;
 		}
 		array_push(images, shopitems[i].image_index);
 	}

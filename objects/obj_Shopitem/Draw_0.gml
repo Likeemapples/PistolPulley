@@ -13,10 +13,10 @@ if (position_meeting(mouse_x, mouse_y, self)) {
 	draw_set_color(c_white)
 }
 
-if (global.money >= prices[image_index]) draw_set_color(c_green);
+if (global.money >= price) draw_set_color(c_green);
 else draw_set_color(c_red);
 
-draw_text_transformed(x,y+2,prices[image_index],0.4,0.4,0);
+draw_text_transformed(x,y+2,price,0.4,0.4,0);
 
 draw_set_color(c_white);
 
