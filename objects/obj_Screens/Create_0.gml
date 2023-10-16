@@ -10,7 +10,7 @@ enum screen {
 
 currentScreen = screen.castle;
 
-
+draw_tasks = []; // [x, y, value, timer]
 
 
 

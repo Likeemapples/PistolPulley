@@ -1,2 +1,2 @@
 
-invincible = true;
+invincible = false;

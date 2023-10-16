@@ -33,9 +33,10 @@ function Ball() : Base() constructor {
 	dmg = 0;
 	img = 0;
 	
+	dir = 1;
 	update = function(me) {
 		var _dt = delta_time / 1000000;
-		me.x -= me.spd*_dt;		
+		me.x -= (me.spd*_dt) * dir;		
 	}	
 }
 
@@ -52,7 +53,6 @@ function Querri() : Base() constructor {
 			falling = true;
 		}
 		
-		
 		if (position_meeting(me.x,me.y+grav,obj_Floor)) {
 			falling = false;
 			var _inst = instance_create_layer(me.x,me.y,"Instances",obj_Qose);
@@ -62,6 +62,7 @@ function Querri() : Base() constructor {
 			instance_destroy(me);
 		}
 		if (falling) {
+			print(grav, dmg)
 			grav += 0.1;
 			me.y += grav;
 		}
@@ -120,9 +121,27 @@ function Big() : Base() constructor {
 	}
 	
 	qSpd = 0.5;
+	setup = false;
 	qose = function(me) {
-		me.scale = 3;
+		if (not setup) {
+			me.scale *= 3;
+			setup = true;
+		}
 	}
 	
 }
 	
+function Boomerang() : Base() constructor {
+	spd = 20;
+	dmg = 2.5;
+	img = 0;
+	
+	update = function(me) {
+		me.image_angle += 10;
+		if (me.x < 96+30) {
+			if (me.spd != -20) me.spd -= 1;
+		}
+	}
+	
+}
+

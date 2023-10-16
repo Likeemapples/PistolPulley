@@ -17,15 +17,19 @@ if (_enemy != noone) {
 		_touched = true;
 	}
 	if (not _touched) {
+		
 		array_push(touched, self);
-		audio_play_sound(snd_EnemyDie,1,false);
-		global.enemiesKilled ++;
+		
 		with (_enemy) {
 			var _hp = hp;
 			hp -= other.dmg;
 			other.dmg -= _hp;
 			if (hp <= 0) {
 				instance_destroy(self);
+				audio_play_sound(snd_EnemyDie,1,false);
+				global.enemiesKilled ++;
+				global.money += array_length(other.touched);
+				array_push(obj_Screens.draw_tasks,[other.x,other.y,array_length(other.touched),room_speed/2])
 			}
 			if (other.dmg <= 0) {
 				instance_destroy(other);
