@@ -33,6 +33,7 @@
     {"id":{"name":"fnt_PerfectDos","path":"fonts/fnt_PerfectDos/fnt_PerfectDos.yy",},"order":0,},
     {"id":{"name":"snd_Hurt","path":"sounds/snd_Hurt/snd_Hurt.yy",},"order":2,},
     {"id":{"name":"snd_ScreenSlide","path":"sounds/snd_ScreenSlide/snd_ScreenSlide.yy",},"order":4,},
+    {"id":{"name":"obj_Bits","path":"objects/obj_Bits/obj_Bits.yy",},"order":10,},
     {"id":{"name":"spr_Slot","path":"sprites/spr_Slot/spr_Slot.yy",},"order":6,},
     {"id":{"name":"scr_EnemyMods","path":"scripts/scr_EnemyMods/scr_EnemyMods.yy",},"order":2,},
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},"order":0,},

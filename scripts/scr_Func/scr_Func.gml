@@ -13,7 +13,7 @@ enum ballnum {
 	big = 8
 	
 }
-global.unlockedBalls = [];
+global.unlockedBalls = [ballnum.fire];
 
 global.enemiesKilled = 0;
 global.roundRequirement = 10;
