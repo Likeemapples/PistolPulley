@@ -7,8 +7,13 @@ if (not global.paused) {
 	else if (y+8 > round(mouse_y) and y > 11) {
 		y -= 1;
 	}
+	if (mouse_check_button_pressed(mb_right) and obj_Screens.currentScreen == screen.castle) {
 
-	if (mouse_check_button_pressed(mb_any) and cooldowntimer >= room_speed and obj_Screens.currentScreen == screen.castle) {
+		make_random_ball();
+;
+	
+	}
+	if (mouse_check_button_pressed(mb_left) and cooldowntimer >= room_speed and obj_Screens.currentScreen == screen.castle) {
 		audio_play_sound(snd_Shoot,1,false);
 		var _inst = instance_create_layer(x,y+8,"Instances", obj_Ball);
 
@@ -47,7 +52,8 @@ if (not global.paused) {
 				
 		}
 		
-		global.summonTimeMod -= 0.1;
+		global.summonTimeMod[0] -= 0.1;
+		global.summonTimeMod[1] -= 0.1;
 	}
 
 	summontimer--;
@@ -64,7 +70,7 @@ if (not global.paused) {
 			global.enemyCRSpawned += _inst.cr;
 		}
 		
-		summontimer = room_speed*global.summonTimeMod;
+		summontimer = room_speed*random_range(global.summonTimeMod[0], global.summonTimeMod[1]);;
 	}
 
 	if (roundtimer < room_speed*20) roundtimer++;

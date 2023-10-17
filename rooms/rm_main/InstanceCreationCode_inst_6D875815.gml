@@ -1,3 +1,3 @@
 depth -= 10;
 
-multiplier = 2;
+multiplier = 1.2;
