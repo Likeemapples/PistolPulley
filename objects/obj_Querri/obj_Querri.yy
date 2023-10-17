@@ -1,15 +1,18 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_Flame",
+  "name": "obj_Querri",
   "spriteId": {
-    "name": "spr_Particles",
-    "path": "sprites/spr_Particles/spr_Particles.yy",
+    "name": "spr_Querri",
+    "path": "sprites/spr_Querri/spr_Querri.yy",
   },
   "solid": false,
   "visible": true,
   "managed": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_Querri",
+    "path": "sprites/spr_Querri/spr_Querri.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,
@@ -31,7 +34,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Particles",
-    "path": "folders/Objects/Particles.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
 }

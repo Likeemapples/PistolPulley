@@ -92,14 +92,16 @@ function Legs() : Enemy() constructor {
 	update = function(me) {
 		if (not setup) {			
 			me.sprite_index = spr_Legs;
-			me.y = 80;
-			me.x = irandom_range(96+17,96+77);
+			me.y = 69;
+			me.x = 96
 		}
 		setup = true;
 		
 		// Rise and Shine loser, its time to run
-		if (me.y > 69) me.y -= spd;
-		else {
+		if (obj_Cannon.roundtimer >= room_speed*20) {
+			if (me.x < 96+77) {
+				if (me.image_index > 2 and me.image_index < 8) me.image_index = 9;
+			} 
 			// stand still 1/2, switch direction 1/2
 			if (me.x <= 96+17) dir = 1;
 			else if (me.x >= 96+77) dir = -1;
@@ -109,17 +111,30 @@ function Legs() : Enemy() constructor {
 				if (irandom_range(0,1) == 1) me.x += spd * dir;
 				else if (irandom_range(0,1) == 1) dir = -dir;
 			}
-			else if (me.image_index < 1 or me.image_index > 10) me.x += spd * dir;
-		}
+			else if (me.image_index < 1 or me.image_index > 8) me.x += spd * dir;
 		
-		// Throw enemies
-		with (me) {
-			var _inst = instance_place(x,y,obj_Enemy);
-			if (_inst != noone) {
-				if (_inst.legs == false) {
-					_inst.y -= 1;
+			// Throw enemies
+			with (me) {
+				var _inst = instance_place(x,y,obj_Enemy);
+				if (_inst != noone) {
+					if (_inst.legs == false) {
+						_inst.y -= 1;
+					}
 				}
 			}
+		}
+		else {
+			// HOOF IT MAN! HOOF IT
+			
+			if (me.x > 96+47) dir = 1;
+			else dir = -1;
+			
+			me.image_xscale = -dir;
+			me.x += spd * dir;
+			
+			if (me.image_index > 1 and me.image_index < 8) me.image_index = 8;
+			
+			if (me.x < 96 or me.x > 96*2) instance_destroy(me);
 		}
 	}
 }

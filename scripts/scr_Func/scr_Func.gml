@@ -1,5 +1,5 @@
 global.hp = 3;
-global.money = 0;
+global.money = 50;
 
 enum ballnum {
 	
@@ -13,7 +13,7 @@ enum ballnum {
 	big = 8
 	
 }
-global.unlockedBalls = [ballnum.fire];
+global.unlockedBalls = [];
 
 global.enemiesKilled = 0;
 global.roundRequirement = 10;

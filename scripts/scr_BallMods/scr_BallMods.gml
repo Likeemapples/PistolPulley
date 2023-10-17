@@ -55,7 +55,7 @@ function Querri() : Base() constructor {
 		
 		if (position_meeting(me.x,me.y+grav,obj_Floor)) {
 			falling = false;
-			var _inst = instance_create_layer(me.x,me.y,"Instances",obj_Qose);
+			var _inst = instance_create_layer(me.x,me.y,"Instances",obj_Querri);
 			_inst.ball = me.ball;
 			_inst.dmg = me.dmg;
 			_inst.walkspd = me.ball.qSpd;

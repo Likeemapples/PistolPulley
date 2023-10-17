@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_Quimothy",
   "spriteId": {
-    "name": "spr_Qose",
-    "path": "sprites/spr_Qose/spr_Qose.yy",
+    "name": "spr_Querri",
+    "path": "sprites/spr_Querri/spr_Querri.yy",
   },
   "solid": false,
   "visible": true,

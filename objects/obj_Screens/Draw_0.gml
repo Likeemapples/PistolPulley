@@ -7,6 +7,10 @@ draw_text_transformed(viewx,5,string(global.enemiesKilled) + " / " + string(glob
 
 if (global.paused) {
 	draw_sprite(spr_Paused,0,viewx,0);
+	if (keyboard_check_pressed(ord("1"))) {
+		global.money += 25;
+	}
+	
 }
 
 for (var i = 0; i < array_length(draw_tasks); i++) {

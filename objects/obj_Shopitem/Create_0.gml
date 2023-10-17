@@ -33,14 +33,14 @@ prices = [
 	100, // Big
 	100, // Fire
 	100, // Boomerang
-	1000, // Bomb
-	1000, // Laser
-	1000, // Slime
-	1000, // Necroball
-	1000, // Pinball
-	1000, // Rainball 
-	1000, // Wombo Comball
-	1000 // Snowball
+	100, // Bomb
+	100, // Laser
+	100, // Slime
+	100, // Necroball
+	100, // Pinball
+	100, // Rainball 
+	100, // Wombo Comball
+	100 // Snowball
 ]
 
 

@@ -8,5 +8,6 @@ dir = -1;
 dmg = 20;
 scale = 1;
 
+deathtimer = room_speed*5;
 
 touched = [];

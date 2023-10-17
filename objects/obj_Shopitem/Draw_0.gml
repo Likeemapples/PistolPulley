@@ -4,7 +4,7 @@ draw_self();
 draw_set_halign(fa_middle)
 draw_set_font(fnt_PerfectDos);
 
-if (position_meeting(mouse_x, mouse_y, self)) {
+if (position_meeting(mouse_x, mouse_y, self) and not global.paused) {
 	
 	draw_set_color(c_white)
 	draw_text_transformed(96*2.5,1,itemDescriptions[image_index],0.4,0.4,0);
