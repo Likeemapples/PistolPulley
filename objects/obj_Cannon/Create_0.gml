@@ -4,15 +4,8 @@ ball = [];
 image = [];
 
 cooldowntimer = room_speed;
-summontimer = room_speed/2;
+summontimer = room_speed*global.summonTimeMod;
 roundtimer = room_speed*20;
-
-enum enemyTypes {
-	normal = 0,
-	wings = 1,
-	legs = 2,
-	buig = 3
-}
 
 summonedEnemies = [];
 
@@ -59,28 +52,28 @@ function make_random_ball() {
 make_random_ball();
 
 function make_enemy(_inst) {
-	
-	switch (irandom_range(1,4)) {
-		case 1:
-			_inst.enemy = new EBuild([new Wings()]);
-			array_push(summonedEnemies, enemyTypes.wings);
-		break;
-		case 2:
+	var _rand = irandom_range(0, array_length(global.summonableEnemies) - 1)
+	switch (global.summonableEnemies[_rand]) {
+		case enemytypes.normal:
 			_inst.enemy = new EBuild([new Normal()]);
-			array_push(summonedEnemies, enemyTypes.normal);
+			array_push(summonedEnemies, enemytypes.normal);
 		break;
-		case 3:
+		case enemytypes.wings:
+			_inst.enemy = new EBuild([new Wings()]);
+			array_push(summonedEnemies, enemytypes.wings);
+		break;
+		case enemytypes.legs:
 			_inst.enemy = new EBuild([new Legs()]);
-			array_push(summonedEnemies, enemyTypes.legs);
+			array_push(summonedEnemies, enemytypes.legs);
 		break;
-		case 4:
-			if (find_in_array(summonedEnemies, enemyTypes.buig) == -1) {
+		case enemytypes.buig:
+			if (find_in_array(summonedEnemies, enemytypes.buig) == -1) {
 				_inst.enemy = new EBuild([new Buig()]);
-				array_push(summonedEnemies, enemyTypes.buig);
+				array_push(summonedEnemies, enemytypes.buig);
 			}
 			else {
 				_inst.enemy = new EBuild([new Normal()]);
-				array_push(summonedEnemies, enemyTypes.normal);
+				array_push(summonedEnemies, enemytypes.normal);
 			}
 		break;
 	}

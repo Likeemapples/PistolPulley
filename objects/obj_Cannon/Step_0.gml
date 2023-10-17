@@ -33,6 +33,21 @@ if (not global.paused) {
 		global.roundNum++;
 		global.enemyCRSpawned = 0;
 		global.roundChallengeRating = round(global.roundChallengeRating * 1.2);
+	
+		switch (global.roundNum) {
+			case 1:
+				array_push(global.summonableEnemies, enemytypes.legs);
+				break;
+			case 2:
+				array_push(global.summonableEnemies, enemytypes.wings);
+				break;
+			case 10:
+				array_push(global.summonableEnemies, enemytypes.buig);
+				break;
+				
+		}
+		
+		global.summonTimeMod -= 0.1;
 	}
 
 	summontimer--;
@@ -49,7 +64,7 @@ if (not global.paused) {
 			global.enemyCRSpawned += _inst.cr;
 		}
 		
-		summontimer = room_speed/2;
+		summontimer = room_speed*global.summonTimeMod;
 	}
 
 	if (roundtimer < room_speed*20) roundtimer++;
@@ -57,3 +72,4 @@ if (not global.paused) {
 	if (roundtimer == room_speed*15) audio_play_sound(snd_Warhorn,1,false);
 
 }
+

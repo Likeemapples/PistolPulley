@@ -15,6 +15,15 @@ enum ballnum {
 }
 global.unlockedBalls = [];
 
+enum enemytypes {
+	normal = 0,
+	wings = 1,
+	legs = 2,
+	buig = 3
+}
+global.summonableEnemies = [enemytypes.normal];
+global.summonTimeMod = 2;
+
 global.enemyCRSpawned = 0;
 global.roundChallengeRating = 10;
 global.roundNum = 0;
