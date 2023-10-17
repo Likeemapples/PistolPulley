@@ -2,6 +2,7 @@ function EBuild(array) constructor {
 	args = [];
 	eHp = array[0].hp;
 	eLegs = array[0].legs;
+	eCr = array[0].cr;
 	for (var i = 0; i < array_length(array); i++) {
 		var arg = array[i];
 		array_push(args,arg);
@@ -12,6 +13,7 @@ function Enemy() constructor {
 	spd = 5;
 	hp = 15;
 	legs = false;
+	cr = 1;
 	
 	update = function() {}
 	draw = function() {}
@@ -21,6 +23,7 @@ function Normal() : Enemy() constructor {
 	spd = 0.25;
 	hp = 5;
 	legs = false;
+	cr = 1;
 	
 	startclimb = false;
 	destx = irandom_range(96+17,96+77)
@@ -57,6 +60,7 @@ function Wings() : Enemy() constructor {
 	spd = 0.125;
 	hp = 2.5;
 	legs = false
+	cr = 1;
 	
 	// Go left and right while slowly climbing up
 	dir = 1;
@@ -86,6 +90,7 @@ function Legs() : Enemy() constructor {
 	spd = 0.125;
 	hp = 10;
 	legs = true;
+	cr = 1;
 	
 	dir = 1;
 	setup = false;
@@ -135,6 +140,37 @@ function Legs() : Enemy() constructor {
 			if (me.image_index > 1 and me.image_index < 8) me.image_index = 8;
 			
 			if (me.x < 96 or me.x > 96*2) instance_destroy(me);
+		}
+	}
+}
+
+function Buig() : Enemy() constructor {
+	spd = 0.5;
+	hp = 20;
+	legs = true;
+	cr = 2;
+	
+	dir = 1;
+	setup = false;
+	update = function(me) {
+		if (not setup) {			
+			me.sprite_index = spr_Buig;
+			me.image_xscale = -1;
+			me.image_yscale = 1;
+			me.y = 69-8;
+			me.x = 96;
+		}
+		setup = true;
+
+		if (me.x < 171) {
+			me.x += spd;
+		}
+		else if (me.image_angle != 90) {
+			me.image_angle += 1;
+		}
+		else {
+			if (obj_Cannon.y > me.y-8) me.y += spd;
+			else if (obj_Cannon.y < me.y-8) me.y -= spd;
 		}
 	}
 }

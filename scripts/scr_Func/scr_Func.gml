@@ -15,8 +15,10 @@ enum ballnum {
 }
 global.unlockedBalls = [];
 
-global.enemiesKilled = 0;
-global.roundRequirement = 10;
+global.enemyCRSpawned = 0;
+global.roundChallengeRating = 10;
+global.roundNum = 0;
+
 
 global.paused = false;
 

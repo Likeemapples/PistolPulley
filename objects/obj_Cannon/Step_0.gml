@@ -27,29 +27,28 @@ if (not global.paused) {
 
 	// Summon Enemies
 
-	if (global.enemiesKilled >= global.roundRequirement) {
+	if (global.enemyCRSpawned >= global.roundChallengeRating) {
+		summonedEnemies = [];
 		roundtimer = 0;
-		global.enemiesKilled = 0;
-		global.roundRequirement = round(global.roundRequirement * 1.2);
+		global.roundNum++;
+		global.enemyCRSpawned = 0;
+		global.roundChallengeRating = round(global.roundChallengeRating * 1.2);
 	}
 
 	summontimer--;
 	if (summontimer <= 0 and instance_number(obj_Enemy) < 10 and roundtimer >= room_speed*20) {
-		var _inst = instance_create_layer(-96,64+5,"Instances",obj_Enemy);
-	
-		switch (irandom_range(1,3)) {
-			case 1:
-				_inst.enemy = new EBuild([new Wings()]);
-			break;
-			case 2:
-				_inst.enemy = new EBuild([new Normal()]);
-			break;
-			case 3:
-				_inst.enemy = new EBuild([new Legs()]);
-			break;
+		if (global.enemyCRSpawned < global.roundChallengeRating) {
+			var _inst = instance_create_layer(-96,64+5,"Instances",obj_Enemy);
+
+			make_enemy(_inst);
+		
+			while (_inst.cr + global.enemyCRSpawned > global.roundChallengeRating) {
+				make_enemy(_inst);
+				print(global.roundChallengeRating, global.enemyCRSpawned, _inst.cr)
+			}
+			global.enemyCRSpawned += _inst.cr;
 		}
-		_inst.hp = _inst.enemy.eHp;
-		_inst.legs = _inst.enemy.eLegs;
+		
 		summontimer = room_speed/2;
 	}
 

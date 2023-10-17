@@ -7,6 +7,15 @@ cooldowntimer = room_speed;
 summontimer = room_speed/2;
 roundtimer = room_speed*20;
 
+enum enemyTypes {
+	normal = 0,
+	wings = 1,
+	legs = 2,
+	buig = 3
+}
+
+summonedEnemies = [];
+
 
 
 function make_random_ball() {
@@ -48,3 +57,34 @@ function make_random_ball() {
 }
 
 make_random_ball();
+
+function make_enemy(_inst) {
+	
+	switch (irandom_range(1,4)) {
+		case 1:
+			_inst.enemy = new EBuild([new Wings()]);
+			array_push(summonedEnemies, enemyTypes.wings);
+		break;
+		case 2:
+			_inst.enemy = new EBuild([new Normal()]);
+			array_push(summonedEnemies, enemyTypes.normal);
+		break;
+		case 3:
+			_inst.enemy = new EBuild([new Legs()]);
+			array_push(summonedEnemies, enemyTypes.legs);
+		break;
+		case 4:
+			if (find_in_array(summonedEnemies, enemyTypes.buig) == -1) {
+				_inst.enemy = new EBuild([new Buig()]);
+				array_push(summonedEnemies, enemyTypes.buig);
+			}
+			else {
+				_inst.enemy = new EBuild([new Normal()]);
+				array_push(summonedEnemies, enemyTypes.normal);
+			}
+		break;
+	}
+	_inst.hp = _inst.enemy.eHp;
+	_inst.legs = _inst.enemy.eLegs;
+	_inst.cr = _inst.enemy.eCr;
+}

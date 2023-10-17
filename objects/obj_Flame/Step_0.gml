@@ -29,12 +29,10 @@ if (not global.paused) {
 	
 	
 		with (_enemy) {
-			var _hp = hp;
 			hp -= 5;
 			if (hp <= 0) {
 			
 				audio_play_sound(snd_EnemyDie,1,false);
-				global.enemiesKilled ++;
 				global.money += 1;
 				array_push(obj_Screens.draw_tasks,[other.x,other.y,1,room_speed/2])
 			

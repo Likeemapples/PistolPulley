@@ -27,7 +27,6 @@ if (_enemy != noone) {
 			if (hp <= 0) {
 				
 				audio_play_sound(snd_EnemyDie,1,false);
-				global.enemiesKilled ++;
 				global.money += array_length(other.touched);
 				array_push(obj_Screens.draw_tasks,[other.x,other.y,array_length(other.touched),room_speed/2])
 				
