@@ -4,8 +4,8 @@
 originy = y;
 originx = x;
 
-changex = 1;
-xdir = -0.25;
+changex = 0;
+xdir = random_range(-0.25,0.25);
 
 dmg = 5;
 touched = [];

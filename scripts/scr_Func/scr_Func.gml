@@ -72,6 +72,8 @@ function damage(me) {
 			else {
 				touched = [_enemy];
 			}
+			
+			
 		
 			with (_enemy) {
 				var _hp = hp;
@@ -92,6 +94,11 @@ function damage(me) {
 							speed = -random_range(1,2);
 						}
 					}
+					
+					if (enemyId == enemytypes.buig) {
+						array_delete(obj_Cannon.summonedEnemies, 0, 1);
+					}
+					
 					instance_destroy(self);
 				}
 				if (other.dmg <= 0 or other.object_index == obj_Flame) {

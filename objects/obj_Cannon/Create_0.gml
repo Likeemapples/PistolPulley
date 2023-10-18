@@ -5,7 +5,7 @@ image = [];
 
 cooldowntimer = room_speed;
 summontimer = room_speed*random_range(global.summonTimeMod[0],global.summonTimeMod[1]);
-roundtimer = room_speed*20;
+roundtimer = 0;
 
 summonedEnemies = [];
 
@@ -75,6 +75,6 @@ function make_enemy(_inst) {
 		break;
 	}
 	_inst.hp = _inst.enemy.eHp;
-	_inst.legs = _inst.enemy.eLegs;
+	_inst.enemyId = _inst.enemy.eId;
 	_inst.cr = _inst.enemy.eCr;
 }

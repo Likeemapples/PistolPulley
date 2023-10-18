@@ -3,6 +3,7 @@ function EBuild(array) constructor {
 	eHp = array[0].hp;
 	eLegs = array[0].legs;
 	eCr = array[0].cr;
+	eId = array[0].enemyId;
 	for (var i = 0; i < array_length(array); i++) {
 		var arg = array[i];
 		array_push(args,arg);
@@ -12,8 +13,9 @@ function EBuild(array) constructor {
 function Enemy() constructor {
 	spd = 5;
 	hp = 15;
-	legs = false;
+	legs = true;
 	cr = 1;
+	enemyId = enemytypes.normal;
 	
 	update = function() {}
 	draw = function() {}
@@ -24,6 +26,7 @@ function Normal() : Enemy() constructor {
 	hp = 5;
 	legs = false;
 	cr = 1;
+	enemyId = enemytypes.normal;
 	
 	startclimb = false;
 	destx = irandom_range(96+17,96+77)
@@ -61,6 +64,7 @@ function Wings() : Enemy() constructor {
 	hp = 2.5;
 	legs = false
 	cr = 1;
+	enemyId = enemytypes.wings;
 	
 	// Go left and right while slowly climbing up
 	dir = 1;
@@ -89,8 +93,8 @@ function Wings() : Enemy() constructor {
 function Legs() : Enemy() constructor {
 	spd = 0.125;
 	hp = 10;
-	legs = true;
 	cr = 1;
+	enemyId = enemytypes.legs;
 	
 	dir = 1;
 	setup = false;
@@ -122,7 +126,7 @@ function Legs() : Enemy() constructor {
 			with (me) {
 				var _inst = instance_place(x,y,obj_Enemy);
 				if (_inst != noone) {
-					if (_inst.legs == false) {
+					if (_inst.enemyId != enemytypes.legs and _inst.enemyId != enemytypes.buig) {
 						_inst.y -= 1;
 					}
 				}
@@ -147,8 +151,8 @@ function Legs() : Enemy() constructor {
 function Buig() : Enemy() constructor {
 	spd = 0.5;
 	hp = 20;
-	legs = true;
 	cr = 2;
+	enemyId = enemytypes.buig;
 	
 	dir = 1;
 	setup = false;
