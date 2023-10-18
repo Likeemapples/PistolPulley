@@ -4,7 +4,7 @@ ball = [];
 image = [];
 
 cooldowntimer = room_speed;
-summontimer = room_speed*global.summonTimeMod;
+summontimer = room_speed*random_range(global.summonTimeMod[0],global.summonTimeMod[1]);
 roundtimer = room_speed*20;
 
 summonedEnemies = [];
@@ -56,15 +56,12 @@ function make_enemy(_inst) {
 	switch (global.summonableEnemies[_rand]) {
 		case enemytypes.normal:
 			_inst.enemy = new EBuild([new Normal()]);
-			array_push(summonedEnemies, enemytypes.normal);
 		break;
 		case enemytypes.wings:
 			_inst.enemy = new EBuild([new Wings()]);
-			array_push(summonedEnemies, enemytypes.wings);
 		break;
 		case enemytypes.legs:
 			_inst.enemy = new EBuild([new Legs()]);
-			array_push(summonedEnemies, enemytypes.legs);
 		break;
 		case enemytypes.buig:
 			if (find_in_array(summonedEnemies, enemytypes.buig) == -1) {

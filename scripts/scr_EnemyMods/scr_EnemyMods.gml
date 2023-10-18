@@ -38,8 +38,8 @@ function Normal() : Enemy() constructor {
 		
 		if (me.y > 69) me.y -= spd;
 		else {
-			if (me.x < destx) {
-				me.x += 1;
+			if (me.x != destx) {
+				me.x += -sign(me.x - destx);
 				me.image_index = 0;
 				me.image_speed = 0;
 			}

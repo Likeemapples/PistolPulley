@@ -5,6 +5,8 @@ if (not global.paused) {
 	for (var i = 0; i < array_length(ball.args); i++) {
 		ball.args[i].qose(self);	
 	}
+	deathtimer--;
+	if (deathtimer <= 0) instance_destroy(self);
 }
 
 if (not place_meeting(x,y+1,obj_Floor)) {
@@ -14,43 +16,5 @@ if (place_meeting(x,y,obj_Floor)) {
 	y -= 1;
 }
 
-var _enemy = instance_place(x,y,obj_Enemy);
-if (_enemy != noone) {
-	var _touched = false;
-	if (find_in_array(touched, _enemy) != -1) { 
-		_touched = true;
-	}
-	if (not _touched) {
-		
-		array_push(touched, self);
-		
-		with (_enemy) {
-			var _hp = hp;
-			hp -= other.dmg;
-			other.dmg -= _hp;
-			if (hp <= 0) {
-				
-				audio_play_sound(snd_EnemyDie,1,false);
-				global.money += array_length(other.touched);
-				array_push(obj_Screens.draw_tasks,[other.x,other.y,array_length(other.touched),room_speed/2])
-				
-				var _ball = other;
-				var _enemy = self;
-				for (_rand = irandom_range(10,30); _rand > 0; _rand--) {
-					var _inst = instance_create_layer(_ball.x+random_range(-2,2), _ball.y+random_range(-2,2), "Instances", obj_Bits);
-					with (_inst) {
-						direction = point_direction(x,y,_ball.x,_ball.y);
-						speed = -random_range(1,2);
-					}
-				}
-				instance_destroy(self);
-			}
-			if (other.dmg <= 0) {
-				instance_destroy(other);
-			}
-		}
-	}
-}
+damage(self);
 
-deathtimer--;
-if (deathtimer <= 0) instance_destroy(self);

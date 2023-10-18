@@ -47,7 +47,8 @@ if (not global.paused) {
 				
 		}
 		
-		global.summonTimeMod -= 0.1;
+		global.summonTimeMod[0] -= 0.1;
+		global.summonTimeMod[1] -= 0.1;
 	}
 
 	summontimer--;
@@ -64,7 +65,7 @@ if (not global.paused) {
 			global.enemyCRSpawned += _inst.cr;
 		}
 		
-		summontimer = room_speed*global.summonTimeMod;
+		summontimer = room_speed*random_range(global.summonTimeMod[0],global.summonTimeMod[1]);
 	}
 
 	if (roundtimer < room_speed*20) roundtimer++;

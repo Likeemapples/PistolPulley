@@ -7,4 +7,7 @@ originx = x;
 changex = 1;
 xdir = -0.25;
 
+dmg = 5;
+touched = [];
+
 image_blend = c_red;
