@@ -41,9 +41,9 @@ if (not global.paused) {
 			case 2:
 				array_push(global.summonableEnemies, enemytypes.wings);
 				break;
-			case 10:
-				array_push(global.summonableEnemies, enemytypes.buig);
-				break;
+			//case 10:
+			//	array_push(global.summonableEnemies, enemytypes.buig);
+			//	break;
 				
 		}
 		

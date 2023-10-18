@@ -149,8 +149,8 @@ function Legs() : Enemy() constructor {
 }
 
 function Buig() : Enemy() constructor {
-	spd = 0.5;
-	hp = 20;
+	spd = 0.25;
+	hp = 50;
 	cr = 2;
 	enemyId = enemytypes.buig;
 	

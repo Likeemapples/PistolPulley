@@ -5,7 +5,7 @@ image = [];
 
 cooldowntimer = room_speed;
 summontimer = room_speed*random_range(global.summonTimeMod[0],global.summonTimeMod[1]);
-roundtimer = 0;
+roundtimer = room_speed*20;
 
 summonedEnemies = [];
 

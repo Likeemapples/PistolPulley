@@ -7,7 +7,7 @@ originx = x;
 changex = 0;
 xdir = random_range(-0.25,0.25);
 
-dmg = 5;
+dmg = 1;
 touched = [];
 
 image_blend = c_red;
