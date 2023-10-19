@@ -26,4 +26,8 @@ if (not global.paused) {
 
 	damage(self);
 	
+	if (place_meeting(x,y,obj_Floor)) {
+		instance_destroy();
+	}
+	
 }

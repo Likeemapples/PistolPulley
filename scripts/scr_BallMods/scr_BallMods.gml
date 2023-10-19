@@ -6,14 +6,19 @@ function Build(array) constructor {
 	bImg = 0;
 	bSpd = array[0].spd;
 	qSpd = 5;
+	
+	specialCount = 0;
 	for (var i = 0; i < array_length(array); i++) {
 		var arg = array[i];
 		if (arg.spd < bSpd) bSpd = arg.spd;
 		if (arg.qSpd < qSpd) qSpd = arg.qSpd;
 		bDmg += arg.dmg;
+		if (arg.dmg != 0) specialCount ++;
 		if (arg.img == 1) { bImg = 1; }
 		array_push(args,arg);
 	}
+	print(bSpd)
+	print(bSpd)
 }
 //hi future isaac!
 function Base() constructor {
@@ -142,6 +147,19 @@ function Boomerang() : Base() constructor {
 			if (me.spd != -20) me.spd -= 1;
 		}
 	}
-	
 }
 
+
+
+//1a
+//2a
+//3a
+//4a
+//5a
+
+//a+a+a+a+a 
+//a = 10 
+//total = 50
+//b = -20
+//a+a+a+a+b 
+//total = 20

@@ -3,9 +3,14 @@ if (not global.paused) {
 
 	if (y+8 < round(mouse_y) and y < 56) {
 		y += 1;
+		sprite_set_speed(spr_Wheel, 15, spritespeed_framespersecond);
 	}
 	else if (y+8 > round(mouse_y) and y > 11) {
 		y -= 1;
+		sprite_set_speed(spr_Wheel, -15, spritespeed_framespersecond);
+	}
+	else {
+		sprite_set_speed(spr_Wheel, 0, spritespeed_framespersecond);
 	}
 
 	if (mouse_check_button_pressed(mb_any) and cooldowntimer >= room_speed and obj_Screens.currentScreen == screen.castle) {
