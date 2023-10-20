@@ -17,14 +17,16 @@ if (not global.paused) {
 	if (keyboard_check_pressed(ord("A"))) {
 		if (currentScreen > 0) {
 			currentScreen -= 1;
+			audio_play_sound(snd_ScreenSlide,1,false);
 		}
-		audio_play_sound(snd_ScreenSlide,1,false);
+		
 	}
 	else if (keyboard_check_pressed(ord("D"))) {
 		if (currentScreen < 2) {
 			currentScreen += 1;
+			audio_play_sound(snd_ScreenSlide,1,false);
 		}
-		audio_play_sound(snd_ScreenSlide,1,false);
+		
 	}
 }
 else {

@@ -32,7 +32,8 @@ if (not global.paused) {
 
 	// Summon Enemies
 
-	if (global.enemyCRSpawned >= global.roundChallengeRating) {
+	if (global.enemyCRSpawned >= global.roundChallengeRating and instance_number(obj_Enemy) == 0) {
+		audio_play_sound(snd_RoundEnd, 1, false);
 		summonedEnemies = [];
 		roundtimer = 0;
 		global.roundNum++;
@@ -46,9 +47,9 @@ if (not global.paused) {
 			case 2:
 				array_push(global.summonableEnemies, enemytypes.wings);
 				break;
-			//case 10:
-			//	array_push(global.summonableEnemies, enemytypes.buig);
-			//	break;
+			case 10:
+				array_push(global.summonableEnemies, enemytypes.buig);
+				break;
 				
 		}
 		
@@ -65,7 +66,6 @@ if (not global.paused) {
 		
 			while (_inst.cr + global.enemyCRSpawned > global.roundChallengeRating) {
 				make_enemy(_inst);
-				print(global.roundChallengeRating, global.enemyCRSpawned, _inst.cr)
 			}
 			global.enemyCRSpawned += _inst.cr;
 		}
@@ -78,4 +78,6 @@ if (not global.paused) {
 	if (roundtimer == room_speed*15) audio_play_sound(snd_Warhorn,1,false);
 
 }
-
+else {
+	sprite_set_speed(spr_Wheel, 0, spritespeed_framespersecond);
+}

@@ -4,21 +4,27 @@ function Build(array) constructor {
 	args = [];
 	bDmg = 0;
 	bImg = 0;
-	bSpd = array[0].spd;
+	bSpd = 0;
 	qSpd = 5;
 	
 	specialCount = 0;
 	for (var i = 0; i < array_length(array); i++) {
 		var arg = array[i];
-		if (arg.spd < bSpd) bSpd = arg.spd;
+		
+		bSpd += arg.spd;
+		print(bSpd, "Modifier")
 		if (arg.qSpd < qSpd) qSpd = arg.qSpd;
 		bDmg += arg.dmg;
-		if (arg.dmg != 0) specialCount ++;
+		if (arg.spd != 0) specialCount ++;
 		if (arg.img == 1) { bImg = 1; }
 		array_push(args,arg);
 	}
-	print(bSpd)
-	print(bSpd)
+	print(bSpd, "Final Modifier")
+	bSpd += 50;
+	print(bSpd, "Base")
+	if (bSpd < 20) bSpd = 20;
+	//bSpd = bSpd / (specialCount + 1);
+	//print(bSpd, "Averaged")
 }
 //hi future isaac!
 function Base() constructor {
@@ -34,7 +40,7 @@ function Base() constructor {
 }
 
 function Ball() : Base() constructor {
-	spd = 50;
+	spd = 0;
 	dmg = 0;
 	img = 0;
 	
@@ -46,7 +52,7 @@ function Ball() : Base() constructor {
 }
 
 function Querri() : Base() constructor {
-	spd = 30;
+	spd = -5;
 	dmg = 10;
 	img = 1;
 	
@@ -67,7 +73,6 @@ function Querri() : Base() constructor {
 			instance_destroy(me);
 		}
 		if (falling) {
-			print(grav, dmg)
 			grav += 0.1;
 			me.y += grav;
 		}
@@ -90,7 +95,7 @@ function Querri() : Base() constructor {
 }
 
 function Fire() : Base() constructor {
-	spd = 50;
+	spd = 10;
 	dmg = -5;
 	img = 0;
 	
@@ -116,7 +121,7 @@ function Fire() : Base() constructor {
 }
 
 function Big() : Base() constructor {
-	spd = 10;
+	spd = -30;
 	dmg = 20;
 	img = 0;
 	
@@ -137,29 +142,20 @@ function Big() : Base() constructor {
 }
 	
 function Boomerang() : Base() constructor {
-	spd = 20;
+	spd = -20;
 	dmg = 2.5;
 	img = 0;
 	
+	maxSpd = 0;
+	setup = false;
 	update = function(me) {
+		if (not setup) {
+			maxSpd = me.spd;
+			setup = true;
+		}
 		me.image_angle += 10;
 		if (me.x < 96+30) {
-			if (me.spd != -20) me.spd -= 1;
+			if (me.spd != -maxSpd) me.spd -= maxSpd/16;
 		}
 	}
 }
-
-
-
-//1a
-//2a
-//3a
-//4a
-//5a
-
-//a+a+a+a+a 
-//a = 10 
-//total = 50
-//b = -20
-//a+a+a+a+b 
-//total = 20
