@@ -68,6 +68,15 @@ function damage(me) {
 			
 			if (object_index == obj_Ball) {
 				array_push(touched, _enemy);
+				for (var i = 0; i < array_length(ball.args); i++) {
+					ball.args[i].onDamage(self);	
+				}
+			}
+			else if (object_index == obj_Querri) {
+				touched = [_enemy];
+				for (var i = 0; i < array_length(onDamage); i++) {
+					onDamage[i].onDamage(self);	// THIS IS CAUSING ME INTENSE PSYCHOLOGICAL DAMAGE WHAT IS MY NAMING CONVENTIONS PLEASE RENAME THIS SOME TIME I KNOW YOU WONT BUT WHYYYYYYYYYYYYYYYYYYYYYYY
+				}
 			}
 			else {
 				touched = [_enemy];

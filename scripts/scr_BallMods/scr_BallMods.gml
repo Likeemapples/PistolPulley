@@ -12,19 +12,14 @@ function Build(array) constructor {
 		var arg = array[i];
 		
 		bSpd += arg.spd;
-		print(bSpd, "Modifier")
 		if (arg.qSpd < qSpd) qSpd = arg.qSpd;
 		bDmg += arg.dmg;
 		if (arg.spd != 0) specialCount ++;
 		if (arg.img == 1) { bImg = 1; }
 		array_push(args,arg);
 	}
-	print(bSpd, "Final Modifier")
 	bSpd += 50;
-	print(bSpd, "Base")
 	if (bSpd < 20) bSpd = 20;
-	//bSpd = bSpd / (specialCount + 1);
-	//print(bSpd, "Averaged")
 }
 //hi future isaac!
 function Base() constructor {
@@ -34,6 +29,7 @@ function Base() constructor {
 	
 	update = function() {}
 	draw = function() {}
+	onDamage = function() {}
 	
 	qSpd = 5;
 	qose = function() {}
@@ -59,17 +55,25 @@ function Querri() : Base() constructor {
 	grav = 0;
 	falling = false;
 	update = function(me) {
-		if (array_length(me.touched) != 0) {
+		if (array_length(me.touched) != 0 and not falling) {
 			me.spd = 0;
+			
 			falling = true;
 		}
 		
+		
+		
+		
 		if (position_meeting(me.x,me.y+grav,obj_Floor)) {
-			falling = false;
+			//falling = false;
 			var _inst = instance_create_layer(me.x,me.y,"Instances",obj_Querri);
 			_inst.ball = me.ball;
 			_inst.dmg = me.dmg;
 			_inst.walkspd = me.ball.qSpd;
+			_inst.onDamage = [];
+			for (var i = 0; i < array_length(me.ball.args); i++) {
+				array_push(_inst.onDamage, me.ball.args[i]);
+			}
 			instance_destroy(me);
 		}
 		if (falling) {
@@ -156,6 +160,21 @@ function Boomerang() : Base() constructor {
 		me.image_angle += 10;
 		if (me.x < 96+30) {
 			if (me.spd != -maxSpd) me.spd -= maxSpd/16;
+		}
+	}
+}
+
+function Bomb() : Base() constructor {
+	spd = 0;
+	dmg = 1;
+	img = 0;
+	
+	onDamage = function(me) {
+		var _me = me;
+		var _inst = instance_create_layer(me.x,me.y,"Instances",obj_Explosion);
+		with (_inst) {
+			scale = _me.dmg/10;
+			dmg = _me.dmg
 		}
 	}
 }

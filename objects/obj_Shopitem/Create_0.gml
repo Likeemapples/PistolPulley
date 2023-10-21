@@ -56,7 +56,7 @@ function roll_shop() {
 	for (var i = 0; i < array_length(shopitems); i++) {
 		shopitems[i].image_index =  _rand;
 		while (find_in_array(images, shopitems[i].image_index) != -1) {
-			var _rand = irandom_range(0,3);
+			var _rand = irandom_range(0,4);
 			shopitems[i].image_index = _rand;
 		}
 		array_push(images, shopitems[i].image_index);

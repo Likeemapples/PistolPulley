@@ -40,6 +40,9 @@ function make_random_ball() {
 						case ballnum.big:
 							array_push(ball, new Big());
 							break;
+						case ballnum.bomb:
+							array_push(ball, new Bomb());
+							break;
 					}
 					
 					_repeat = false;
