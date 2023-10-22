@@ -12,6 +12,7 @@ function Build(array) constructor {
 		var arg = array[i];
 		
 		bSpd += arg.spd;
+		print(bSpd, arg.spd);
 		if (arg.qSpd < qSpd) qSpd = arg.qSpd;
 		bDmg += arg.dmg;
 		if (arg.spd != 0) specialCount ++;
@@ -19,7 +20,11 @@ function Build(array) constructor {
 		array_push(args,arg);
 	}
 	bSpd += 50;
-	if (bSpd < 20) bSpd = 20;
+	print(bSpd, "Final")
+	if (bSpd < 20) {
+		bSpd = 20;
+		print("Modified bSpd to ", bSpd);
+	}
 }
 //hi future isaac!
 function Base() constructor {

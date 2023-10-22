@@ -20,6 +20,7 @@ if (not global.paused) {
 		with (_inst) {
 			ball = new Build(other.ball);
 			spd = ball.bSpd;
+			print(spd, ball.bSpd, "Cannon Pass")
 			dmg = ball.bDmg + 10; // This +10 is here because cannonballs add no additional damage
 			image_index = ball.bImg;
 		}

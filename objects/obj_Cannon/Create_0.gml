@@ -15,6 +15,8 @@ function make_random_ball() {
 	ball = [];
 	image = [];
 	
+	array_push(ball, new Ball());
+	
 	for (var i = 0; i < slotCount; i++) {
 		var _repeat = true;
 		while (_repeat) {
