@@ -1,6 +1,15 @@
 /// @desc ??
 
 if (not setup) {
+	
+	for (_rand = irandom_range(20,40); _rand > 0; _rand--) {
+		var _inst = instance_create_layer(x+random_range(-2,2), y+random_range(-2,2), "Instances", object);
+		with (_inst) {
+			direction = point_direction(x,y,other.x,other.y);
+			speed = -random_range(1,2);
+		}
+	}
+	
 	var _enemy = instance_place(x,y,obj_Enemy);
 	if (_enemy != noone) {
 		var _touched = false;

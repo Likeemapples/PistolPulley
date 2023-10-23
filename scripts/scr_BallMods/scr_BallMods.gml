@@ -36,6 +36,8 @@ function Base() constructor {
 	draw = function() {}
 	onDamage = function() {}
 	
+	onQuerriDeath = function() {}
+	
 	qSpd = 5;
 	qose = function() {}
 }
@@ -75,9 +77,9 @@ function Querri() : Base() constructor {
 			_inst.ball = me.ball;
 			_inst.dmg = me.dmg;
 			_inst.walkspd = me.ball.qSpd;
-			_inst.onDamage = [];
+			_inst.functions = [];
 			for (var i = 0; i < array_length(me.ball.args); i++) {
-				array_push(_inst.onDamage, me.ball.args[i]);
+				array_push(_inst.functions, me.ball.args[i]);
 			}
 			instance_destroy(me);
 		}
@@ -178,8 +180,19 @@ function Bomb() : Base() constructor {
 		var _me = me;
 		var _inst = instance_create_layer(me.x,me.y,"Instances",obj_Explosion);
 		with (_inst) {
-			scale = _me.dmg/10;
+			scale = _me.dmg/20;
+			dmg = _me.dmg;
+			object = (_me.image_blend == c_red) ? obj_Flame : obj_Smoke;
+		}
+	}
+	
+	onQuerriDeath = function(me) {
+		var _me = me;
+		var _inst = instance_create_layer(me.x,me.y,"Instances",obj_Explosion);
+		with (_inst) {
+			scale = _me.dmg/20;
 			dmg = _me.dmg
+			object = (_me.image_blend == c_red) ? obj_Flame : obj_Smoke;
 		}
 	}
 }

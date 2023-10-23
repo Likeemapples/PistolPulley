@@ -1,6 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (speed != 0) {
+	speed += -(sign(speed))/10;
+	//if (speed < 1 and speed > -1) speed = 0;
+}
+
 if (not global.paused) {
 	y += 0.25;
 	if (changex >= 5 or changex <= -5) xdir = -xdir;

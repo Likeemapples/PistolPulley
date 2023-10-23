@@ -1,7 +1,6 @@
 function EBuild(array) constructor {
 	args = [];
 	eHp = array[0].hp;
-	eLegs = array[0].legs;
 	eCr = array[0].cr;
 	eId = array[0].enemyId;
 	for (var i = 0; i < array_length(array); i++) {
@@ -107,7 +106,7 @@ function Legs() : Enemy() constructor {
 		setup = true;
 		
 		// Rise and Shine loser, its time to run
-		if (obj_Cannon.roundtimer >= room_speed*20) {
+		if (global.enemyCRSpawned < global.roundChallengeRating) {
 			if (me.x < 96+77) {
 				if (me.image_index > 2 and me.image_index < 8) me.image_index = 9;
 			} 
