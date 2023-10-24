@@ -19,14 +19,13 @@ if (not global.paused) {
 			currentScreen -= 1;
 			audio_play_sound(snd_ScreenSlide,1,false);
 		}
-		
 	}
 	else if (keyboard_check_pressed(ord("D"))) {
 		if (currentScreen < 2) {
 			currentScreen += 1;
 			audio_play_sound(snd_ScreenSlide,1,false);
+			
 		}
-		
 	}
 }
 else {
@@ -36,11 +35,15 @@ else {
 		}
 	}
 }
-
+var lay_id = layer_get_id("LinearBlur");
 if (viewx != currentScreen*96) {
 	
-	viewx += sign(currentScreen*96-viewx) * 2;
+	viewx += sign(currentScreen*96-viewx) * 6;
+	layer_set_visible(lay_id, true);
 	
+}
+else {
+	layer_set_visible(lay_id, false);
 }
 
 camera_set_view_pos(view_camera[0], viewx, 0);

@@ -196,3 +196,15 @@ function Bomb() : Base() constructor {
 		}
 	}
 }
+
+function Lightning() : Base() constructor {
+	spd = 30;
+	dmg = 5;
+	img = 0;
+	
+	onDamage = function(me) {
+		
+	}
+	
+	
+}
