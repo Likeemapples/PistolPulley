@@ -5,13 +5,4 @@ touched = [];
 
 setup = false;
 
-
-
-
 scale = 1;
-
-
-
-
-
-

@@ -1,3 +1,7 @@
-/// @description Insert description here
-// You can write your code in this editor
 
+enum Npc {
+	LeglessGreg, // (Not legless)
+	Quobert,
+	,
+	Squid
+}

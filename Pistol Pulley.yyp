@@ -34,6 +34,7 @@
     {"id":{"name":"obj_Explosion","path":"objects/obj_Explosion/obj_Explosion.yy",},"order":4,},
     {"id":{"name":"obj_Smoke","path":"objects/obj_Smoke/obj_Smoke.yy",},"order":2,},
     {"id":{"name":"obj_Dirt","path":"objects/obj_Dirt/obj_Dirt.yy",},"order":3,},
+    {"id":{"name":"spr_Buttons","path":"sprites/spr_Buttons/spr_Buttons.yy",},"order":17,},
     {"id":{"name":"spr_Ropes","path":"sprites/spr_Ropes/spr_Ropes.yy",},"order":2,},
     {"id":{"name":"spr_Wings","path":"sprites/spr_Wings/spr_Wings.yy",},"order":2,},
     {"id":{"name":"obj_Enemy","path":"objects/obj_Enemy/obj_Enemy.yy",},"order":3,},
@@ -42,6 +43,7 @@
     {"id":{"name":"snd_RoundEnd","path":"sounds/snd_RoundEnd/snd_RoundEnd.yy",},"order":5,},
     {"id":{"name":"snd_ScreenSlide","path":"sounds/snd_ScreenSlide/snd_ScreenSlide.yy",},"order":4,},
     {"id":{"name":"obj_Bits","path":"objects/obj_Bits/obj_Bits.yy",},"order":0,},
+    {"id":{"name":"spr_Textbox","path":"sprites/spr_Textbox/spr_Textbox.yy",},"order":18,},
     {"id":{"name":"spr_Slot","path":"sprites/spr_Slot/spr_Slot.yy",},"order":6,},
     {"id":{"name":"spr_Buig","path":"sprites/spr_Buig/spr_Buig.yy",},"order":3,},
     {"id":{"name":"scr_EnemyMods","path":"scripts/scr_EnemyMods/scr_EnemyMods.yy",},"order":2,},
@@ -93,6 +95,6 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.11.0.54",
+    "IDEVersion": "2022.9.1.51",
   },
 }
