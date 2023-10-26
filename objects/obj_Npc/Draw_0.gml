@@ -10,6 +10,11 @@ draw_sprite(spr_Buttons, 1, 80, 32);
 
 draw_set_valign(fa_bottom);
 draw_set_halign(fa_middle);
+draw_set_color(c_black);
+
+
+draw_text_transformed(48, 69, text, 0.4, 0.4, 0);
+
+
 draw_set_color(c_white);
-draw_text_transformed(48, 69, "I am unfinished, ignore", 0.4, 0.4, 0);
 draw_set_valign(fa_top);
