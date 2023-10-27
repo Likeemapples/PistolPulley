@@ -1,14 +1,10 @@
 /// @desc ??
 
-image_index = currentNpc;
+image_index = npc.image;
 
-dialogue = allDialogue[currentNpc][0];
 
-cost = allCosts[currentNpc][0];
+print(dialogue)
 
-reward = allRewards[currentNpc][0];
-
-print(dialogue, reward, cost)
 if (obj_Screens.viewx == obj_Screens.currentScreen) {
 	if (textIndex <= string_length(dialogue[dialogueIndex])) {
 		text += string_char_at(dialogue[dialogueIndex], textIndex);

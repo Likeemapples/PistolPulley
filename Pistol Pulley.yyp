@@ -20,6 +20,7 @@
     {"id":{"name":"spr_Explosion","path":"sprites/spr_Explosion/spr_Explosion.yy",},"order":15,},
     {"id":{"name":"spr_Ball","path":"sprites/spr_Ball/spr_Ball.yy",},"order":3,},
     {"id":{"name":"spr_Legs","path":"sprites/spr_Legs/spr_Legs.yy",},"order":0,},
+    {"id":{"name":"scr_Npc","path":"scripts/scr_Npc/scr_Npc.yy",},"order":3,},
     {"id":{"name":"spr_Shopitems","path":"sprites/spr_Shopitems/spr_Shopitems.yy",},"order":12,},
     {"id":{"name":"obj_Quimothy","path":"objects/obj_Quimothy/obj_Quimothy.yy",},"order":8,},
     {"id":{"name":"obj_Screens","path":"objects/obj_Screens/obj_Screens.yy",},"order":7,},
