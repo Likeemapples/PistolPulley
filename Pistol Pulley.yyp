@@ -4,6 +4,7 @@
   "name": "Pistol Pulley",
   "resources": [
     {"id":{"name":"obj_Shopitem","path":"objects/obj_Shopitem/obj_Shopitem.yy",},"order":9,},
+    {"id":{"name":"spr_DeathScreen","path":"sprites/spr_DeathScreen/spr_DeathScreen.yy",},"order":19,},
     {"id":{"name":"scr_Func","path":"scripts/scr_Func/scr_Func.yy",},"order":1,},
     {"id":{"name":"spr_BG","path":"sprites/spr_BG/spr_BG.yy",},"order":0,},
     {"id":{"name":"obj_Floor","path":"objects/obj_Floor/obj_Floor.yy",},"order":4,},
@@ -32,6 +33,7 @@
     {"id":{"name":"snd_Shoot","path":"sounds/snd_Shoot/snd_Shoot.yy",},"order":0,},
     {"id":{"name":"spr_Querri","path":"sprites/spr_Querri/spr_Querri.yy",},"order":7,},
     {"id":{"name":"spr_Normal","path":"sprites/spr_Normal/spr_Normal.yy",},"order":1,},
+    {"id":{"name":"rm_death","path":"rooms/rm_death/rm_death.yy",},"order":1,},
     {"id":{"name":"obj_Explosion","path":"objects/obj_Explosion/obj_Explosion.yy",},"order":4,},
     {"id":{"name":"obj_Smoke","path":"objects/obj_Smoke/obj_Smoke.yy",},"order":2,},
     {"id":{"name":"obj_Dirt","path":"objects/obj_Dirt/obj_Dirt.yy",},"order":3,},
@@ -69,6 +71,7 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
+    {"roomId":{"name":"rm_death","path":"rooms/rm_death/rm_death.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":10,},
@@ -96,6 +99,6 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.9.1.51",
+    "IDEVersion": "2022.11.0.54",
   },
 }

@@ -15,5 +15,5 @@ if (y < 13 and not invincible) {
 }
 
 if (global.hp <= 0) {
-	game_end();
+	room_goto(rm_death);
 }
