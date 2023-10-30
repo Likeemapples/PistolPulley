@@ -73,9 +73,15 @@ if (not global.paused) {
 		summontimer = room_speed*random_range(global.summonTimeMod[0],global.summonTimeMod[1]);
 	}
 
-	if (roundtimer < room_speed*20) roundtimer++;
+	if (roundtimer < room_speed*20) {
+		roundtimer++;
+		//obj_Screens.currentScreen = 2;
+	}
+	//else obj_Screens.currentScreen = 1;
 
-	if (roundtimer == room_speed*15) audio_play_sound(snd_Warhorn,1,false);
+	if (roundtimer == room_speed*15) {
+		audio_play_sound(snd_Warhorn,1,false);	
+	}
 
 }
 else {
