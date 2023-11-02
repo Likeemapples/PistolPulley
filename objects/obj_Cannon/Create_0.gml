@@ -78,6 +78,9 @@ function make_enemy(_inst) {
 				array_push(summonedEnemies, enemytypes.normal);
 			}
 		break;
+		case enemytypes.howl:
+			_inst.enemy = new EBuild([new Howl()]);
+		break;
 	}
 	_inst.hp = _inst.enemy.eHp;
 	_inst.enemyId = _inst.enemy.eId;

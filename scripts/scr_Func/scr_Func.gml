@@ -19,7 +19,8 @@ enum enemytypes {
 	normal = 0,
 	wings = 1,
 	legs = 2,
-	buig = 3
+	buig = 3,
+	howl = 4
 }
 global.summonableEnemies = [enemytypes.normal];
 global.summonTimeMod = [2,3];

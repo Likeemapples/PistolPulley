@@ -47,6 +47,8 @@ if (not global.paused) {
 			case 2:
 				array_push(global.summonableEnemies, enemytypes.wings);
 				break;
+			case 5:
+				array_push(global.summonableEnemies, enemytypes.howl);
 			case 10:
 				array_push(global.summonableEnemies, enemytypes.buig);
 				break;
@@ -70,7 +72,7 @@ if (not global.paused) {
 			global.enemyCRSpawned += _inst.cr;
 		}
 		
-		summontimer = room_speed*random_range(global.summonTimeMod[0],global.summonTimeMod[1]);
+		summontimer = room_speed*random_range(global.summonTimeMod[0],global.summonTimeMod[1])/2;
 	}
 
 	if (roundtimer < room_speed*20) {

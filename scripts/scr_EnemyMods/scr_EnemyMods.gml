@@ -21,8 +21,8 @@ function Enemy() constructor {
 }
 
 function Normal() : Enemy() constructor {
-	spd = 0.25;
-	hp = 5;
+	spd = 0.125+random(0.125);
+	hp = 2.5;
 	legs = false;
 	cr = 1;
 	enemyId = enemytypes.normal;
@@ -59,8 +59,8 @@ function Normal() : Enemy() constructor {
 }
 
 function Wings() : Enemy() constructor {
-	spd = 0.125;
-	hp = 2.5;
+	spd = 0.0625+random(0.0625);
+	hp = 1.25;
 	legs = false
 	cr = 1;
 	enemyId = enemytypes.wings;
@@ -91,14 +91,15 @@ function Wings() : Enemy() constructor {
 
 function Legs() : Enemy() constructor {
 	spd = 0.125;
-	hp = 10;
+	hp = 5;
 	cr = 1;
 	enemyId = enemytypes.legs;
 	
 	dir = 1;
 	setup = false;
 	update = function(me) {
-		if (not setup) {			
+		if (not setup) {	
+			me.image_index = irandom(16)
 			me.sprite_index = spr_Legs;
 			me.y = 69;
 			me.x = 96
@@ -149,7 +150,7 @@ function Legs() : Enemy() constructor {
 
 function Buig() : Enemy() constructor {
 	spd = 0.25;
-	hp = 50;
+	hp = 25;
 	cr = 2;
 	enemyId = enemytypes.buig;
 	
@@ -174,6 +175,44 @@ function Buig() : Enemy() constructor {
 		else {
 			if (obj_Cannon.y > me.y-8) me.y += spd;
 			else if (obj_Cannon.y < me.y-8) me.y -= spd;
+		}
+	}
+}
+
+function Howl() : Enemy() constructor {
+	spd = 0.5;
+	hp = 0.5;
+	legs = false;
+	cr = 2;
+	enemyId = enemytypes.howl;
+	
+	startclimb = false;
+	destx = irandom_range(96+17,96+77)
+	setup = false;
+	update = function(me) {
+		if (not setup) {
+			me.x = irandom_range(96+17,96+77);
+			me.y = 80;
+		}
+		setup = true;
+		
+		
+		if (me.y > 69) me.y -= spd;
+		else {
+			if (me.x != destx) {
+				me.x += -sign(me.x - destx);
+				me.image_index = 0;
+				me.image_speed = 0;
+			}
+			else startclimb = true;
+
+			if (startclimb) {
+				me.y -= spd;
+				me.image_speed = 1;
+				with (me) {
+					animate_range(1,2);
+				}
+			}
 		}
 	}
 }
