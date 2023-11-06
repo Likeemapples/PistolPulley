@@ -32,6 +32,45 @@ global.roundNum = 0;
 
 global.paused = false;
 
+global.prideFlags = [
+	[
+	c_red, 
+	make_color_rgb(255,153,51), 
+	make_color_rgb(255,237,0),
+	make_color_rgb(0,153,51),
+	make_color_rgb(0,51,153),
+	make_color_rgb(91,25,123)
+	], // Default Pride Flag
+	[
+	make_color_rgb(19,191,25),
+	make_color_rgb(253,190,255),
+	c_white,
+	make_color_rgb(253,190,255),
+	make_color_rgb(19,191,25)
+	], // Trans
+	[
+	make_color_rgb(255,245,41),
+	c_white,
+	make_color_rgb(134,62,196),
+	make_color_rgb(34,34,34)
+	], // Non-binary
+	[
+	make_color_rgb(202,0,95),
+	make_color_rgb(202,0,95),
+	make_color_rgb(92,60,134),
+	make_color_rgb(5,35,151),
+	make_color_rgb(5,35,151)
+	], // Bi
+	[
+	make_color_rgb(213,45,0),
+	make_color_rgb(255,154,84),
+	make_color_rgb(254,255,249),
+	make_color_rgb(210,98,160),
+	make_color_rgb(163,2,96)
+	],
+	[]
+]
+
 function print() {
     var _str = "";
 

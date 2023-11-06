@@ -1,5 +1,13 @@
 randomize();
 
+enum Season {
+	wet,
+	hot,
+	wind,
+	cold,
+	none
+}
+
 function Build(array) constructor {
 	args = [];
 	bDmg = 0;
@@ -25,6 +33,8 @@ function Build(array) constructor {
 }
 //hi future isaac!
 function Base() constructor {
+	season = [Season.hot];
+	
 	spd = 5;
 	dmg = 0;
 	img = 0;
@@ -40,6 +50,8 @@ function Base() constructor {
 }
 
 function Ball() : Base() constructor {
+	season = [Season.none];
+	
 	spd = 0;
 	dmg = 0;
 	img = 0;
@@ -52,6 +64,8 @@ function Ball() : Base() constructor {
 }
 
 function Querri() : Base() constructor {
+	season = [Season.none];
+	
 	spd = -5;
 	dmg = 10;
 	img = 1;
@@ -103,6 +117,8 @@ function Querri() : Base() constructor {
 }
 
 function Fire() : Base() constructor {
+	season = [Season.hot];
+	
 	spd = 10;
 	dmg = -5;
 	img = 0;
@@ -129,6 +145,8 @@ function Fire() : Base() constructor {
 }
 
 function Big() : Base() constructor {
+	season = [Season.wind, Season.none];
+	
 	spd = -30;
 	dmg = 20;
 	img = 0;
@@ -146,10 +164,11 @@ function Big() : Base() constructor {
 			setup = true;
 		}
 	}
-	
 }
 	
 function Boomerang() : Base() constructor {
+	season = [Season.wind, Season.hot];
+	
 	spd = -20;
 	dmg = 2.5;
 	img = 0;
@@ -169,6 +188,8 @@ function Boomerang() : Base() constructor {
 }
 
 function Bomb() : Base() constructor {
+	season = [Season.hot, Season.none];
+	
 	spd = 0;
 	dmg = 1;
 	img = 0;
@@ -195,11 +216,13 @@ function Bomb() : Base() constructor {
 }
 
 function Rainball() : Base() constructor {
+	season = [Season.wet];
+	
 	spd = 0;
 	dmg = 10;
 	img = 0;
 	
-	onDamage = function(me) {
+	update = function(me) {
 		
 	}
 	
