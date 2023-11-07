@@ -45,6 +45,9 @@ function make_random_ball() {
 						case ballnum.bomb:
 							array_push(ball, new Bomb());
 							break;
+						case ballnum.rainball:
+							array_push(ball, new Rainball());
+							break;
 					}
 					
 					_repeat = false;

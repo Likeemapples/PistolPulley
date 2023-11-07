@@ -10,10 +10,11 @@ enum ballnum {
 	lightning = 5,
 	bomb = 6,
 	slime = 7,
-	big = 8
+	big = 8,
+	rainball = 9
 	
 }
-global.unlockedBalls = [];
+global.unlockedBalls = [ballnum.rainball];
 
 enum enemytypes {
 	normal = 0,

@@ -104,7 +104,7 @@ function Querri() : Base() constructor {
 	qSpd = 1;
 	qose = function(me) {
 		me.x += me.dir;
-		me.image_xscale = -sign(me.dir)*me.scale;
+		me.image_xscale = -sign(me.dir)*me.scale;//*-1; Do the thing
 		me.image_yscale = me.scale;
 		
 		if (me.x <= 96+16) {
@@ -126,7 +126,8 @@ function Fire() : Base() constructor {
 	update = function(me) {
 		var _rand = irandom_range(1,1);
 		if (_rand == 1) {
-			instance_create_layer(me.x,me.y,"Instances",obj_Flame);
+			var _inst = instance_create_layer(me.x,me.y,"Instances",obj_Flame);
+			_inst.colors = [];
 		}
 	}
 	
@@ -138,7 +139,8 @@ function Fire() : Base() constructor {
 	qose = function(me) {
 		me.image_blend = c_red;
 		if (flame % 3 == 0) {
-			instance_create_layer(me.x,me.y-(3*me.scale),"Instances",obj_Flame);
+			_inst = instance_create_layer(me.x,me.y-(3*me.scale),"Instances",obj_Flame);
+			_inst.colors = [];
 		}
 		flame ++;
 	}
@@ -222,9 +224,28 @@ function Rainball() : Base() constructor {
 	dmg = 10;
 	img = 0;
 	
+	pride = global.prideFlags[0];
+	xprev = 0;
 	update = function(me) {
-		
+		for (var _x = 0; _x < abs(xprev - me.x); _x ++) {
+			for (var i = 0; i < array_length(pride); i++) {
+				var _inst = instance_create_layer(me.x, me.y-(array_length(pride)/2)+i,"Instances",obj_Flag);
+				_inst.image_blend = pride[i];
+				_inst.image_xscale = abs(xprev-me.x)+0.25;
+			}
+		}
+		print(me.x, xprev, xprev-me.x)
+		xprev = me.x;
 	}
-	
-	
+	qose = function(me) {
+		for (var _x = 0; _x < abs(xprev - me.x); _x ++) {
+			for (var i = 0; i < array_length(pride); i++) {
+				var _inst = instance_create_layer(me.x, me.y-(array_length(pride)/2)+i,"Instances",obj_Flag);
+				_inst.image_blend = pride[i];
+				_inst.image_xscale = abs(xprev-me.x)+0.25;
+			}
+		}
+		print(me.x, xprev, xprev-me.x)
+		xprev = me.x;
+	}
 }

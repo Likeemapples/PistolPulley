@@ -3,7 +3,7 @@
 
 if (speed != 0) {
 	speed += -(sign(speed))/10;
-	//if (speed < 1 and speed > -1) speed = 0;
+	//if (speed < 1 and speed > -1) speed = 0; // this makes floaties
 }
 
 if (not global.paused) {
@@ -13,17 +13,8 @@ if (not global.paused) {
 	x = originx + changex;
 
 	if (irandom_range(0,4) == 0) {
-		switch (irandom_range(0,2)) {
-			case 0:
-				image_blend = make_color_rgb(221,100,36);
-			break;
-			case 1:
-				image_blend = make_color_rgb(250,70,22);
-			break;
-			case 2:
-				image_blend = make_color_rgb(221,60,36);
-			break;
-		}
+		var _rand = irandom_range(0,array_length(colors)-1) 
+		image_blend = colors[_rand];
 	}
 	if ((y - originy) > 10) {
 		if (irandom_range(0,10) == 0) instance_destroy(self);
