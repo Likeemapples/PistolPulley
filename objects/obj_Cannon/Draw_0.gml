@@ -6,6 +6,7 @@ depth -= 10;
 for (var i = 0; i < array_length(image); i++) {
 	draw_sprite(spr_Slot,0,96+1.5,15+(i*9));
 	draw_sprite(spr_Slot,image[i],96+1.5,15+(i*9));
+	print(image, array_length(image))
 }
 
 if (roundtimer < room_speed * 20) {

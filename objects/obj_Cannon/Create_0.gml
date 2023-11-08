@@ -12,7 +12,7 @@ summonedEnemies = [];
 
 
 function make_random_ball() {
-	print(global.unlockedBalls);
+	//print(global.unlockedBalls);
 	ball = [];
 	image = [];
 	
@@ -24,12 +24,13 @@ function make_random_ball() {
 			var _rand = irandom_range(0,10+(array_length(global.unlockedBalls)-1)); // One more in the hat
 			if (_rand < 10) {
 				array_push(ball, new Ball());
-				array_push(image, ballnum.normal);
+				array_push(image, ballnum.normal+1); // Dont ask.
 				_repeat = false;
 			}
 			else {
+				//print(global.unlockedBalls[_rand-10], "a")
 				if (find_in_array(image, global.unlockedBalls[_rand-10]) == -1) {
-					array_push(image, global.unlockedBalls[_rand-10]+1);
+					array_push(image, global.unlockedBalls[_rand-10]);
 					switch (global.unlockedBalls[_rand-10]) {
 						case ballnum.querri:
 							array_push(ball, new Querri());

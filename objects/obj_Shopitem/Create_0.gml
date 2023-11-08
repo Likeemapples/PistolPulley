@@ -1,29 +1,33 @@
 itemDescriptions = [
 	" Falls down and fights for you ", // Querri
-	" Very big ", // Big
 	" Rains fire on your enemies ", // Fire
+	"  ", // Lightning
+	" Explodes. Damage -> Radius ", // Bomb
 	" Its a boomerang! ", // Boomerang
-	" Explodes. Pierce -> Radius ", // Bomb
-	" Major speed increase ", // Laser
-	" Slows down anything it touches ", // Slime
 	" Turns enemies to your side ", // Necroball
 	" Bounces between enemies ", // Pinball
+	" Very big ", // Big
+	" Slows down anything it touches ", // Slime
 	" Occasional high damage rain ", // Rainball 
+	// The void
+	" Major speed increase ", // Laser
 	"  ", // Wombo Comball
 	"  " // Snowball
 ]
 
 flavorText = [
 	" Following his dreams ", // Querri
-	" Only second to your mother ", // Big
 	" Non-OSHA compliant ", // Fire
-	" Main cause of operator deaths ", // Boomerang
+	"  ", // Lightning
 	" Not your average IED ", // Bomb
-	" Not for use with felines ", // Laser
-	" League player ", // Slime
+	" Main cause of operator deaths ", // Boomerang
 	"  ", // Necroball
 	"  ", // Pinball
+	" Only second to your mother ", // Big
+	" League player ", // Slime
 	" Only an ally ", // Rainball 
+	// The void
+	" Not for use with felines ", // Laser
 	" Happy feet ", // Wombo Comball
 	"  " // Snowball
 ]
