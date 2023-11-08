@@ -41,34 +41,58 @@ global.prideFlags = [
 	make_color_rgb(0,153,51),
 	make_color_rgb(0,51,153),
 	make_color_rgb(91,25,123)
-	], // Default Pride Flag
+	], // Default Pride Flag, 0
 	[
-	make_color_rgb(19,191,25),
+	make_color_rgb(91,206,250),
 	make_color_rgb(253,190,255),
 	c_white,
 	make_color_rgb(253,190,255),
-	make_color_rgb(19,191,25)
-	], // Trans
+	make_color_rgb(91,206,250)
+	], // Trans, 1
 	[
 	make_color_rgb(255,245,41),
 	c_white,
 	make_color_rgb(134,62,196),
 	make_color_rgb(34,34,34)
-	], // Non-binary
+	], // Non-binary, 2
 	[
 	make_color_rgb(202,0,95),
 	make_color_rgb(202,0,95),
 	make_color_rgb(92,60,134),
 	make_color_rgb(5,35,151),
 	make_color_rgb(5,35,151)
-	], // Bi
+	], // Bi, 3
 	[
 	make_color_rgb(213,45,0),
 	make_color_rgb(255,154,84),
 	make_color_rgb(254,255,249),
 	make_color_rgb(210,98,160),
 	make_color_rgb(163,2,96)
-	],
+	], // Lesbian, 4
+	[
+	c_black,
+	make_color_rgb(51,51,51),
+	make_color_rgb(102,102,102),
+	make_color_rgb(153,153,153),
+	make_color_rgb(187,187,187),
+	c_white
+	], // Hetero, 5
+	[
+	make_color_rgb(255,155,205),
+	make_color_rgb(255,83,190),
+	make_color_rgb(37,0,70),
+	make_color_rgb(103,95,255),
+	make_color_rgb(140,165,255)
+	], // Omni, 6
+	[
+	make_color_rgb(253,138,121),
+	make_color_rgb(249,190,147),
+	make_color_rgb(245,248,177),
+	c_white,
+	make_color_rgb(141,224,217),
+	make_color_rgb(151,157,232),
+	make_color_rgb(155,108,232)
+	], // Genderfaunet, 7 Chosen by Sal - Slime
 	[]
 ]
 

@@ -13,6 +13,8 @@ function Build(array) constructor {
 	bDmg = 0;
 	bImg = 0;
 	bSpd = 0;
+	bPride = [];
+	bAlly = false;
 	qSpd = 5;
 	
 	specialCount = 0;
@@ -24,6 +26,8 @@ function Build(array) constructor {
 		bDmg += arg.dmg;
 		if (arg.spd != 0) specialCount ++;
 		if (arg.img == 1) { bImg = 1; }
+		if (arg.pride != -1) bPride = arg.pride;
+		if (arg.ally = true) bAlly = true;
 		array_push(args,arg);
 	}
 	bSpd += 50;
@@ -34,6 +38,8 @@ function Build(array) constructor {
 //hi future isaac!
 function Base() constructor {
 	season = [Season.hot];
+	pride = -1;
+	ally = false;
 	
 	spd = 5;
 	dmg = 0;
@@ -51,6 +57,7 @@ function Base() constructor {
 
 function Ball() : Base() constructor {
 	season = [Season.none];
+	pride = -1;
 	
 	spd = 0;
 	dmg = 0;
@@ -65,6 +72,7 @@ function Ball() : Base() constructor {
 
 function Querri() : Base() constructor {
 	season = [Season.none];
+	pride = global.prideFlags[1];
 	
 	spd = -5;
 	dmg = 10;
@@ -75,11 +83,8 @@ function Querri() : Base() constructor {
 	update = function(me) {
 		if (array_length(me.touched) != 0 and not falling) {
 			me.spd = 0;
-			
 			falling = true;
 		}
-		
-		
 		
 		
 		if (position_meeting(me.x,me.y+grav,obj_Floor)) {
@@ -88,6 +93,8 @@ function Querri() : Base() constructor {
 			_inst.ball = me.ball;
 			_inst.dmg = me.dmg;
 			_inst.walkspd = me.ball.qSpd;
+			_inst.pride = me.pride;
+			_inst.ally = me.ally;
 			_inst.functions = [];
 			for (var i = 0; i < array_length(me.ball.args); i++) {
 				array_push(_inst.functions, me.ball.args[i]);
@@ -118,6 +125,7 @@ function Querri() : Base() constructor {
 
 function Fire() : Base() constructor {
 	season = [Season.hot];
+	pride = global.prideFlags[4]; // Chosen by Oli
 	
 	spd = 10;
 	dmg = -5;
@@ -127,7 +135,10 @@ function Fire() : Base() constructor {
 		var _rand = irandom_range(1,1);
 		if (_rand == 1) {
 			var _inst = instance_create_layer(me.x,me.y,"Instances",obj_Flame);
-			_inst.colors = [];
+			if (me.ally) {
+				_inst.colors = me.pride;
+				_inst.image_blend = me.pride[0];
+			}
 		}
 	}
 	
@@ -140,7 +151,10 @@ function Fire() : Base() constructor {
 		me.image_blend = c_red;
 		if (flame % 3 == 0) {
 			_inst = instance_create_layer(me.x,me.y-(3*me.scale),"Instances",obj_Flame);
-			_inst.colors = [];
+			if (me.ally) {
+				_inst.colors = me.pride;
+				_inst.image_blend = me.pride[0];
+			}
 		}
 		flame ++;
 	}
@@ -148,6 +162,7 @@ function Fire() : Base() constructor {
 
 function Big() : Base() constructor {
 	season = [Season.wind, Season.none];
+	pride = global.prideFlags[2];
 	
 	spd = -30;
 	dmg = 20;
@@ -170,6 +185,7 @@ function Big() : Base() constructor {
 	
 function Boomerang() : Base() constructor {
 	season = [Season.wind, Season.hot];
+	pride = global.prideFlags[3];
 	
 	spd = -20;
 	dmg = 2.5;
@@ -191,6 +207,7 @@ function Boomerang() : Base() constructor {
 
 function Bomb() : Base() constructor {
 	season = [Season.hot, Season.none];
+	pride = global.prideFlags[6]; // Chosen by Ketchup (Rose)
 	
 	spd = 0;
 	dmg = 1;
@@ -219,29 +236,31 @@ function Bomb() : Base() constructor {
 
 function Rainball() : Base() constructor {
 	season = [Season.wet];
+	pride = global.prideFlags[7];
+	ally = true;
 	
 	spd = 0;
 	dmg = 10;
 	img = 0;
 	
-	pride = global.prideFlags[0];
 	xprev = 0;
 	update = function(me) {
 		for (var _x = 0; _x < abs(xprev - me.x); _x ++) {
-			for (var i = 0; i < array_length(pride); i++) {
-				var _inst = instance_create_layer(me.x, me.y-(array_length(pride)/2)+i,"Instances",obj_Flag);
-				_inst.image_blend = pride[i];
+			for (var i = 0; i < array_length(me.pride); i++) {
+				var _inst = instance_create_layer(me.x, me.y-(array_length(me.pride)/2)+i,"Instances",obj_Flag);
+				_inst.image_blend = me.pride[i];
 				_inst.image_xscale = abs(xprev-me.x)+0.25;
 			}
 		}
 		print(me.x, xprev, xprev-me.x)
 		xprev = me.x;
 	}
+	
 	qose = function(me) {
 		for (var _x = 0; _x < abs(xprev - me.x); _x ++) {
-			for (var i = 0; i < array_length(pride); i++) {
-				var _inst = instance_create_layer(me.x, me.y-(array_length(pride)/2)+i,"Instances",obj_Flag);
-				_inst.image_blend = pride[i];
+			for (var i = 0; i < array_length(me.pride); i++) {
+				var _inst = instance_create_layer(me.x, me.y-(array_length(me.pride)/2)+i,"Instances",obj_Flag);
+				_inst.image_blend = me.pride[i];
 				_inst.image_xscale = abs(xprev-me.x)+0.25;
 			}
 		}

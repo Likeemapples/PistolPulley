@@ -15,6 +15,7 @@
     {"id":{"name":"obj_Ball","path":"objects/obj_Ball/obj_Ball.yy",},"order":2,},
     {"id":{"name":"obj_Ropes","path":"objects/obj_Ropes/obj_Ropes.yy",},"order":1,},
     {"id":{"name":"scr_BallMods","path":"scripts/scr_BallMods/scr_BallMods.yy",},"order":0,},
+    {"id":{"name":"obj_Rain","path":"objects/obj_Rain/obj_Rain.yy",},"order":6,},
     {"id":{"name":"obj_Npc","path":"objects/obj_Npc/obj_Npc.yy",},"order":12,},
     {"id":{"name":"spr_Paused","path":"sprites/spr_Paused/spr_Paused.yy",},"order":13,},
     {"id":{"name":"spr_Cannon","path":"sprites/spr_Cannon/spr_Cannon.yy",},"order":1,},
@@ -100,6 +101,6 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.11.0.54",
+    "IDEVersion": "2022.9.1.51",
   },
 }

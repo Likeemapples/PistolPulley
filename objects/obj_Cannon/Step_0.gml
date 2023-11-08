@@ -21,6 +21,8 @@ if (not global.paused) {
 			ball = new Build(other.ball);
 			spd = ball.bSpd;
 			dmg = ball.bDmg + 10; // This +10 is here because cannonballs add no additional damage
+			pride = ball.bPride;
+			ally = ball.bAlly;
 			image_index = ball.bImg;
 		}
 		make_random_ball();
