@@ -20,6 +20,9 @@ if (position_meeting(mouse_x, mouse_y, self) and not global.paused) {
 			case 4:	
 				array_push(global.unlockedBalls,ballnum.bomb);
 				break;	
+			case 5: 
+				array_push(global.unlockedBalls,ballnum.rainball);
+				break;
 		}
 		global.money -= price;
 		roll_shop()

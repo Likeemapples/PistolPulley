@@ -2,18 +2,24 @@ global.hp = 3;
 global.money = 50;
 
 enum ballnum {
-	
-	normal = 1,
-	querri = 2,
-	fire = 3,
-	boomerang = 4,
-	lightning = 5,
-	bomb = 6,
-	slime = 7,
+	normal = 0,
+	querri = 1,
+	fire = 2,
+	lightning = 3,
+	bomb = 4,
+	boomerang = 5,
+	necroball = 6,
+	pinball = 7,
 	big = 8,
-	rainball = 9
-	
+	slime = 9,
+	rainball = 10
 }
+global.balls = [
+	ballnum.querri, ballnum.fire, 
+	ballnum.bomb, ballnum.boomerang, 
+	ballnum.big, ballnum.rainball
+]
+
 global.unlockedBalls = [ballnum.rainball];
 
 enum enemytypes {

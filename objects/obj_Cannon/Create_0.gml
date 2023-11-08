@@ -12,6 +12,7 @@ summonedEnemies = [];
 
 
 function make_random_ball() {
+	print(global.unlockedBalls);
 	ball = [];
 	image = [];
 	
@@ -20,7 +21,7 @@ function make_random_ball() {
 	for (var i = 0; i < slotCount; i++) {
 		var _repeat = true;
 		while (_repeat) {
-			var _rand = irandom_range(0,9+array_length(global.unlockedBalls)); // One more in the hat
+			var _rand = irandom_range(0,10+(array_length(global.unlockedBalls)-1)); // One more in the hat
 			if (_rand < 10) {
 				array_push(ball, new Ball());
 				array_push(image, ballnum.normal);
@@ -28,7 +29,7 @@ function make_random_ball() {
 			}
 			else {
 				if (find_in_array(image, global.unlockedBalls[_rand-10]) == -1) {
-					array_push(image, global.unlockedBalls[_rand-10]);
+					array_push(image, global.unlockedBalls[_rand-10]+1);
 					switch (global.unlockedBalls[_rand-10]) {
 						case ballnum.querri:
 							array_push(ball, new Querri());

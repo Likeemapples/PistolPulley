@@ -236,7 +236,7 @@ function Bomb() : Base() constructor {
 
 function Rainball() : Base() constructor {
 	season = [Season.wet];
-	pride = global.prideFlags[7];
+	pride = global.prideFlags[0];
 	ally = true;
 	
 	spd = 0;
@@ -252,7 +252,6 @@ function Rainball() : Base() constructor {
 				_inst.image_xscale = abs(xprev-me.x)+0.25;
 			}
 		}
-		print(me.x, xprev, xprev-me.x)
 		xprev = me.x;
 	}
 	
@@ -264,7 +263,6 @@ function Rainball() : Base() constructor {
 				_inst.image_xscale = abs(xprev-me.x)+0.25;
 			}
 		}
-		print(me.x, xprev, xprev-me.x)
 		xprev = me.x;
 	}
 }

@@ -51,13 +51,14 @@ shopitems = [inst_6E22E29, inst_6D875815, inst_1AFB15E5];
 
 function roll_shop() {
 	// Shopitems
-	var _rand = irandom_range(0,3);
+	// No seriously how the heck does this work
+	var _randomBallChoice = global.balls[irandom(array_length(global.balls)-1)];
 	images = [];
 	for (var i = 0; i < array_length(shopitems); i++) {
-		shopitems[i].image_index =  _rand;
+		shopitems[i].image_index =  _randomBallChoice;
 		while (find_in_array(images, shopitems[i].image_index) != -1) {
-			var _rand = irandom_range(0,4);
-			shopitems[i].image_index = _rand;
+			var _randomBallChoice = global.balls[irandom(array_length(global.balls)-1)];
+			shopitems[i].image_index = _randomBallChoice;
 		}
 		array_push(images, shopitems[i].image_index);
 	}
