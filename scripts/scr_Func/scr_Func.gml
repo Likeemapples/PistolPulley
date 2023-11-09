@@ -99,8 +99,26 @@ global.prideFlags = [
 	make_color_rgb(151,157,232),
 	make_color_rgb(155,108,232)
 	], // Genderfaunet, 7 Chosen by Sal - Slime
+	[
+	make_color_rgb(239,144,7),
+	make_color_rgb(246,211,23),
+	c_white,
+	make_color_rgb(69,188,238),
+	make_color_rgb(30,63,84)
+	], //Aroace, 8
 	[]
 ]
+enum flag {
+	inclusive = 0,
+	trans = 1,
+	nonbinary = 2,
+	bi = 3,
+	lesbian = 4,
+	hetero = 5,
+	omni = 6,
+	genderfaunet = 7,
+	aroace = 8
+}
 
 function print() {
     var _str = "";

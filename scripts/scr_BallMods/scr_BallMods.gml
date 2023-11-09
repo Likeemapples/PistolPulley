@@ -13,7 +13,7 @@ function Build(array) constructor {
 	bDmg = 0;
 	bImg = 0;
 	bSpd = 0;
-	bPride = [];
+	bPride = -1;
 	bAlly = false;
 	qSpd = 5;
 	
@@ -38,7 +38,7 @@ function Build(array) constructor {
 //hi future isaac!
 function Base() constructor {
 	season = [Season.hot];
-	pride = -1;
+	pride = -1; // Passthrough
 	ally = false;
 	
 	spd = 5;
@@ -57,7 +57,6 @@ function Base() constructor {
 
 function Ball() : Base() constructor {
 	season = [Season.none];
-	pride = -1;
 	
 	spd = 0;
 	dmg = 0;
@@ -72,7 +71,7 @@ function Ball() : Base() constructor {
 
 function Querri() : Base() constructor {
 	season = [Season.none];
-	pride = global.prideFlags[1];
+	pride = global.prideFlags[flag.trans];
 	
 	spd = -5;
 	dmg = 10;
@@ -125,7 +124,7 @@ function Querri() : Base() constructor {
 
 function Fire() : Base() constructor {
 	season = [Season.hot];
-	pride = global.prideFlags[4]; // Chosen by Oli
+	pride = global.prideFlags[flag.lesbian]; // Chosen by Oli
 	
 	spd = 10;
 	dmg = -5;
@@ -162,7 +161,7 @@ function Fire() : Base() constructor {
 
 function Big() : Base() constructor {
 	season = [Season.wind, Season.none];
-	pride = global.prideFlags[2];
+	pride = global.prideFlags[flag.aroace]; // Chosen by mustard
 	
 	spd = -30;
 	dmg = 20;
@@ -185,7 +184,7 @@ function Big() : Base() constructor {
 	
 function Boomerang() : Base() constructor {
 	season = [Season.wind, Season.hot];
-	pride = global.prideFlags[3];
+	pride = global.prideFlags[flag.bi]; // Chosen by Mattias
 	
 	spd = -20;
 	dmg = 2.5;
@@ -207,7 +206,7 @@ function Boomerang() : Base() constructor {
 
 function Bomb() : Base() constructor {
 	season = [Season.hot, Season.none];
-	pride = global.prideFlags[6]; // Chosen by Ketchup (Rose)
+	pride = global.prideFlags[flag.omni]; // Chosen by Ketchup (Rose)
 	
 	spd = 0;
 	dmg = 1;
@@ -236,7 +235,6 @@ function Bomb() : Base() constructor {
 
 function Rainball() : Base() constructor {
 	season = [Season.wet];
-	pride = global.prideFlags[0];
 	ally = true;
 	
 	spd = 0;
@@ -245,6 +243,7 @@ function Rainball() : Base() constructor {
 	
 	xprev = 0;
 	update = function(me) {
+		if (me.pride == -1) me.pride = global.prideFlags[flag.inclusive];
 		for (var _x = 0; _x < abs(xprev - me.x); _x ++) {
 			for (var i = 0; i < array_length(me.pride); i++) {
 				var _inst = instance_create_layer(me.x, me.y-(array_length(me.pride)/2)+i,"Instances",obj_Flag);

@@ -9,10 +9,7 @@ roundtimer = room_speed*20;
 
 summonedEnemies = [];
 
-
-
 function make_random_ball() {
-	//print(global.unlockedBalls);
 	ball = [];
 	image = [];
 	
@@ -28,9 +25,9 @@ function make_random_ball() {
 				_repeat = false;
 			}
 			else {
-				//print(global.unlockedBalls[_rand-10], "a")
-				if (find_in_array(image, global.unlockedBalls[_rand-10]) == -1) {
-					array_push(image, global.unlockedBalls[_rand-10]);
+				if (find_in_array(image, global.unlockedBalls[_rand-10]+1) == -1) {
+					print(global.unlockedBalls[_rand-10], global.unlockedBalls)
+					array_push(image, global.unlockedBalls[_rand-10]+1);
 					switch (global.unlockedBalls[_rand-10]) {
 						case ballnum.querri:
 							array_push(ball, new Querri());
