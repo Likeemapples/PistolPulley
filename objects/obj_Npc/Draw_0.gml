@@ -5,6 +5,8 @@ draw_self();
 
 draw_sprite(spr_Textbox, 0, 48, 72);
 
+if ()
+
 draw_sprite(spr_Buttons, 0, 16, 32);
 draw_sprite(spr_Buttons, 1, 80, 32);
 

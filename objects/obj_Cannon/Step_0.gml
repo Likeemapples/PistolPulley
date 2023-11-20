@@ -79,6 +79,7 @@ if (not global.paused) {
 
 	if (roundtimer < room_speed*20) {
 		roundtimer++;
+		if (keyboard_check_pressed(vk_space)) roundtimer = room_speed*20;
 		//obj_Screens.currentScreen = 2;
 	}
 	//else obj_Screens.currentScreen = 1;
