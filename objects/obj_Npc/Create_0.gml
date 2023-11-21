@@ -8,6 +8,9 @@ cost = npc.costs[irandom(array_length(npc.costs)-1)];
 
 stringCost = string(cost[1]);
 
+yesSize = 1;
+noSize = 1;
+
 switch (cost[0]) {
 	case 0:
 		stringCost += " Gold";

@@ -2,8 +2,6 @@
 
 image_index = npc.image;
 
-
-
 if (obj_Screens.viewx == obj_Screens.currentScreen) {
 	if (textIndex <= string_length(dialogue[dialogueIndex])) {
 		text += string_char_at(dialogue[dialogueIndex], textIndex);
