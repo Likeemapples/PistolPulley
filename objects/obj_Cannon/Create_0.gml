@@ -26,7 +26,6 @@ function make_random_ball() {
 			}
 			else {
 				if (find_in_array(image, global.unlockedBalls[_rand-10]+1) == -1) {
-					print(global.unlockedBalls[_rand-10], global.unlockedBalls)
 					array_push(image, global.unlockedBalls[_rand-10]+1);
 					switch (global.unlockedBalls[_rand-10]) {
 						case ballnum.querri:

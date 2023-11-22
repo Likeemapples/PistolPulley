@@ -234,33 +234,35 @@ function Bomb() : Base() constructor {
 }
 
 function Rainball() : Base() constructor {
+	// Set ball season
 	season = [Season.wet];
+	
+	// Pass through flag colors
 	ally = true;
 	
+	// Ball stats
 	spd = 0;
 	dmg = 10;
 	img = 0;
 	
 	xprev = 0;
 	update = function(me) {
-		if (me.pride == -1) me.pride = global.prideFlags[flag.inclusive];
-		for (var _x = 0; _x < abs(xprev - me.x); _x ++) {
-			for (var i = 0; i < array_length(me.pride); i++) {
-				var _inst = instance_create_layer(me.x, me.y-(array_length(me.pride)/2)+i,"Instances",obj_Flag);
-				_inst.image_blend = me.pride[i];
-				_inst.image_xscale = abs(xprev-me.x)+0.25;
-			}
+		//if (me.pride == -1) me.pride = global.prideFlags[flag.inclusive];
+		me.pride = global.prideFlags[irandom(8)];
+		for (var i = 0; i < array_length(me.pride); i++) {
+			var _inst = instance_create_layer(me.x, me.y-(array_length(me.pride)/2)+i,"Instances",obj_Flag);
+			_inst.image_blend = me.pride[i];
+			if (abs(xprev-me.x)+0.25 < 100)	_inst.image_xscale = abs(xprev-me.x)+0.25;
+			else _inst.image_xscale = abs(me.x-obj_Cannon.x)+0.25;
 		}
 		xprev = me.x;
 	}
 	
 	qose = function(me) {
-		for (var _x = 0; _x < abs(xprev - me.x); _x ++) {
-			for (var i = 0; i < array_length(me.pride); i++) {
-				var _inst = instance_create_layer(me.x, me.y-(array_length(me.pride)/2)+i,"Instances",obj_Flag);
-				_inst.image_blend = me.pride[i];
-				_inst.image_xscale = abs(xprev-me.x)+0.25;
-			}
+		for (var i = 0; i < array_length(me.pride); i++) {
+			var _inst = instance_create_layer(me.x, me.y-(array_length(me.pride)/2)+i,"Instances",obj_Flag);
+			_inst.image_blend = me.pride[i];
+			_inst.image_xscale = abs(xprev-me.x)+0.25;
 		}
 		xprev = me.x;
 	}
