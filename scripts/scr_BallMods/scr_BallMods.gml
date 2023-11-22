@@ -247,8 +247,8 @@ function Rainball() : Base() constructor {
 	
 	xprev = 0;
 	update = function(me) {
-		//if (me.pride == -1) me.pride = global.prideFlags[flag.inclusive];
-		me.pride = global.prideFlags[irandom(8)];
+		if (me.pride == -1) me.pride = global.prideFlags[flag.inclusive];
+		//me.pride = global.prideFlags[irandom(8)];
 		for (var i = 0; i < array_length(me.pride); i++) {
 			var _inst = instance_create_layer(me.x, me.y-(array_length(me.pride)/2)+i,"Instances",obj_Flag);
 			_inst.image_blend = me.pride[i];

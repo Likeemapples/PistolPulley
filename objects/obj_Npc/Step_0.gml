@@ -11,6 +11,7 @@ if (obj_Screens.viewx == obj_Screens.currentScreen) {
 	var _flag1 = false;
 	var _flag2 = false;
 	
+	// Yes button
 	if (point_in_rectangle(
 		mouse_x,mouse_y,
 		16-(16/2),32-(11/2),
@@ -19,10 +20,10 @@ if (obj_Screens.viewx == obj_Screens.currentScreen) {
 	)) {
 		
 		_flag1 = true;
-		if (yesSize < 2) yesSize += 0.1;
+		if (yesSize < 1.5) yesSize += 0.1;
 	
 		if (mouse_check_button_pressed(mb_left)) {
-		
+			
 		}
 	
 	}
@@ -30,7 +31,7 @@ if (obj_Screens.viewx == obj_Screens.currentScreen) {
 		if (yesSize > 1) yesSize -= 0.1;
 	}
 
-
+	// No button
 	if (point_in_rectangle(
 			mouse_x,mouse_y,
 			80-(16/2),32-(11/2),
@@ -40,12 +41,17 @@ if (obj_Screens.viewx == obj_Screens.currentScreen) {
 			
 		_flag2 = true;
 		if (noSize < 2) noSize += 0.1;
+		
+		if (mouse_check_button_pressed(mb_left)) {
+			
+		}
 	}
 	else {
+
 		if (noSize > 1) noSize -= 0.1;
 	}
 	
-	if (not _flag1 and not _flag2 and not mouse_check_button_pressed(mb_any) and not dialogueIndex == array_length(dialogue)-1) {
+	if (not _flag1 and not _flag2 and mouse_check_button_pressed(mb_any) and not dialogueIndex == array_length(dialogue)-1) {
 		text = "";
 		textIndex = 1;
 		dialogueIndex ++;

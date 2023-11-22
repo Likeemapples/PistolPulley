@@ -2,4 +2,4 @@
 
 
 touched = [];
-dmg = 1;
+dmg = 0.3;
