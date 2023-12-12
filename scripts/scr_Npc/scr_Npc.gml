@@ -47,7 +47,7 @@ function AmanStir(me) : Npc() constructor {
 	dialogueSetup = method({me: me}, function() {
 		return [
 			["Hello there fellow human", me.stringReward + " for " + me.stringCost],
-			["Just a funky dude", "Totally a man, yep, uh huh"]
+			["Give me " + me.stringCost, "I'll pay "+ me.stringReward]
 		]
 	});
 }
