@@ -1,4 +1,5 @@
 enum NpcType {
+	None = 0,
 	AmanStir, // (Not legless)
 	Quobert, // Sacrifice Hp for a ball
 	Qwest, // Dungeons
@@ -13,8 +14,11 @@ enum NpcType {
 	TheBallSlicer,
 	TrouterWilds,
 	Hamilton,
-	WindowYouSpellMarius
+	WindowYouSpellMarius,
+	Squid
 }
+
+global.availableNpcs = [NpcType.AmanStir, NpcType.Cisco]
 
 enum Currency {
 	Gold,
@@ -32,6 +36,10 @@ function Npc() constructor {
 	dialogues = [];
 }
 
+function None(me) : Npc() constructor {
+	image = NpcType.None;
+}
+
 function AmanStir(me) : Npc() constructor {
 	image = NpcType.AmanStir;
 	
@@ -46,8 +54,32 @@ function AmanStir(me) : Npc() constructor {
 	
 	dialogueSetup = method({me: me}, function() {
 		return [
-			["Hello there fellow human", me.stringReward + " for " + me.stringCost],
-			["Just a funky dude", "Totally a man, yep, uh huh"]
+			["Hello there fellow human", me.stringReward + " for " + me.stringCost]
 		]
 	});
+	
+	yesText = "\"Lol\" said the scorpion, \"Lmao\"";
+	noText = "196.182.301.7";
+}
+
+function Cisco(me) : Npc() constructor {
+	image = NpcType.Cisco;
+	
+	rewards = [
+	[Currency.Rounds, 2],
+	[Currency.Rounds, 1]
+	];
+	
+	costs = [
+	[Currency.Gold, 50]
+	];
+	
+	dialogueSetup = method({me: me}, function() {
+		return [
+			["Cat", me.stringCost + ", bye bye " + me.stringReward]
+		]
+	});
+	
+	yesText = "k thanks";
+	noText = "Krill issue";
 }

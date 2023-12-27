@@ -14,6 +14,7 @@
     {"id":{"name":"obj_Flame","path":"objects/obj_Flame/obj_Flame.yy",},"order":1,},
     {"id":{"name":"obj_Ball","path":"objects/obj_Ball/obj_Ball.yy",},"order":2,},
     {"id":{"name":"obj_Ropes","path":"objects/obj_Ropes/obj_Ropes.yy",},"order":1,},
+    {"id":{"name":"obj_Cloud","path":"objects/obj_Cloud/obj_Cloud.yy",},"order":13,},
     {"id":{"name":"scr_BallMods","path":"scripts/scr_BallMods/scr_BallMods.yy",},"order":0,},
     {"id":{"name":"obj_Npc","path":"objects/obj_Npc/obj_Npc.yy",},"order":12,},
     {"id":{"name":"spr_Paused","path":"sprites/spr_Paused/spr_Paused.yy",},"order":13,},
@@ -51,6 +52,7 @@
     {"id":{"name":"spr_Slot","path":"sprites/spr_Slot/spr_Slot.yy",},"order":6,},
     {"id":{"name":"spr_Buig","path":"sprites/spr_Buig/spr_Buig.yy",},"order":3,},
     {"id":{"name":"scr_EnemyMods","path":"scripts/scr_EnemyMods/scr_EnemyMods.yy",},"order":2,},
+    {"id":{"name":"spr_Clouds","path":"sprites/spr_Clouds/spr_Clouds.yy",},"order":20,},
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},"order":0,},
   ],
   "Options": [
@@ -100,6 +102,6 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.11.0.54",
+    "IDEVersion": "2022.9.1.51",
   },
 }

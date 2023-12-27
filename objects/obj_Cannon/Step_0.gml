@@ -1,6 +1,11 @@
 /// @desc ??
 if (not global.paused) {
-
+	
+	if (irandom_range(0, 500) == 29) {
+		var _inst = instance_create_layer(96*0, 0, "Clouds", obj_Cloud);
+		_inst.image_index = irandom_range(0, 2);
+	}
+	
 	if (y+8 < round(mouse_y) and y < 56) {
 		y += 1;
 		sprite_set_speed(spr_Wheel, 15, spritespeed_framespersecond);
@@ -51,6 +56,7 @@ if (not global.paused) {
 				break;
 			case 5:
 				array_push(global.summonableEnemies, enemytypes.howl);
+				break;
 			case 10:
 				array_push(global.summonableEnemies, enemytypes.buig);
 				break;
