@@ -14,7 +14,7 @@ enum NpcType {
 	TheBallSlicer, // SLICE YOUR BALLS
 	TrouterWilds, // Space Fisher, plays the synth
 	Hamilton, // Ms. Piggy
-	WindowYouSpellMarius,
+	WindowYouSpellMarius, // Mattias fr
 	Squid
 }
 
