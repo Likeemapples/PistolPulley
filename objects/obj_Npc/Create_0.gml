@@ -10,6 +10,7 @@ function initNpc(_npc) {
 
 		thanks = npc.yesText;
 		noThanks = npc.noText;
+		notEnoughThanks = npc.poorText;
 		stringCost = string(cost[1]);
 
 		yesSize = 0;
@@ -60,87 +61,85 @@ function initNpc(_npc) {
 	}
 }
 
-initNpc(new Cisco(self));
+function randomNpc() {
+	switch global.availableNpcs[irandom_range(0, array_length(global.availableNpcs)-1)] {
+		case NpcType.AmanStir:
+			return new AmanStir(self);
+			break;
+		case NpcType.Cisco:
+			return new Cisco(self);
+			break;
+		case NpcType.Quobert:
+			return new Quobert(self);
+			break;
+	}
+}
+
+initNpc(randomNpc());
 
 function exchange() {
+	
+	var _exchanged = false;
+	
 	// Costs
 	switch (cost[0]) {
 		case Currency.Gold:
-			global.money -= cost[1];
+			if (global.money >= cost[1]) {
+				_exchanged = true;
+				global.money -= cost[1];
+			}
 			break;
 		case Currency.Hp:
-			global.hp -= cost[1];
-			for (var i = 0; i < cost[1]; i++) {
-				instance_destroy(instance_find(obj_Quimothy, irandom(instance_number(obj_Quimothy) - 1)));
+			if (global.hp >= cost[1]) {
+				_exchanged = true;
+				global.hp -= cost[1];
+				for (var i = 0; i < cost[1]; i++) {
+					instance_destroy(instance_find(obj_Quimothy, irandom(instance_number(obj_Quimothy) - 1)));
+				}
 			}
 			break;
 		case Currency.Rounds:
-			for (var i = 0; i < cost[1]; i++) {
-				global.roundNum ++;
-				global.enemyCRSpawned = 0;
-				global.roundChallengeRating = round(global.roundChallengeRating * 1.2);
-	
-				switch (global.roundNum) {
-					case 1:
-						array_push(global.summonableEnemies, enemytypes.legs);
-						break;
-					case 2:
-						array_push(global.summonableEnemies, enemytypes.wings);
-						break;
-					case 5:
-						array_push(global.summonableEnemies, enemytypes.howl);
-						break;
-					case 10:
-						array_push(global.summonableEnemies, enemytypes.buig);
-						break;
-				
-				}
-		
-				global.summonTimeMod[0] -= 0.1;
-				global.summonTimeMod[1] -= 0.1;
-			}
+			global.roundNum += cost[1];
+			obj_Cannon.roundCheck = false;
 			break;
 	}
 				
 				
 	// Rewards
-	switch (reward[0]) {
-		case Currency.Gold:
-			global.money += reward[1];
-			break;
-		case Currency.Hp:
-			global.hp += reward[1];
-			for (var i = 0; i < reward[1]; i++) {
-				instance_create_layer(112, 16, "Instances", obj_Quimothy);
-			}
-			break;
-		case Currency.Rounds:
-			for (var i = 0; i < reward[1]; i++) {
-				if (global.roundNum > 0) {
-					global.roundNum --;
-					global.enemyCRSpawned = 0;
-					global.roundChallengeRating = round(global.roundChallengeRating / 1.2);
-	
-					switch (global.roundNum) {
-						case 0:
-							array_delete(global.summonableEnemies, find_in_array(global.summonableEnemies, enemytypes.legs), 1);
-							break;
-						case 1:
-							array_delete(global.summonableEnemies, find_in_array(global.summonableEnemies, enemytypes.wings), 1);
-							break;
-						case 4:
-							array_delete(global.summonableEnemies, find_in_array(global.summonableEnemies, enemytypes.howl), 1);
-							break;
-						case 9:
-							array_delete(global.summonableEnemies, find_in_array(global.summonableEnemies, enemytypes.buig), 1);
-							break;
-				
-					}
-		
-					global.summonTimeMod[0] += 0.1;
-					global.summonTimeMod[1] += 0.1;
+	if (_exchanged) {
+		switch (reward[0]) {
+			case Currency.Gold:
+				global.money += reward[1];
+				break;
+			case Currency.Hp:
+				global.hp += reward[1];
+				for (var i = 0; i < reward[1]; i++) {
+					instance_create_layer(112, 16, "Instances", obj_Quimothy);
 				}
-			}
-			break;
+				break;
+			case Currency.Rounds:
+				if (global.roundNum >= reward[1]) {
+					global.roundNum -= reward[1];
+					obj_Cannon.roundCheck = false;
+				}
+				else {
+					global.roundNum = 0;
+					obj_Cannon.roundCheck = false;
+				}
+				break;
+		}
+		dialogue = [thanks];
+		text = "";
+		textIndex = 1;
+		dialogueIndex = 0;
+					
+		initNpc(new None(self));
+	}
+	else {
+		dialogue = [notEnoughThanks];
+		text = "";
+		textIndex = 1;
+		dialogueIndex = 0;
+				
 	}
 }

@@ -38,7 +38,7 @@ if (not setup) {
 						}
 					}
 				
-					if (enemyId == enemytypes.buig) {
+					if (enemyId == EnemyType.buig) {
 						array_delete(obj_Cannon.summonedEnemies, 0, 1);
 					}
 				

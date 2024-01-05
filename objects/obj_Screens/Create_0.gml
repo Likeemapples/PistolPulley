@@ -13,4 +13,5 @@ currentScreen = screen.castle;
 draw_tasks = []; // [x, y, value, timer]
 
 
-
+surf = surface_create(480, 360);
+global.text = surface_create(480, 360);

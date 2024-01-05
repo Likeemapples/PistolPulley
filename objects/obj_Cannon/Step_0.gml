@@ -2,7 +2,7 @@
 if (not global.paused) {
 	
 	if (irandom_range(0, 500) == 29) {
-		var _inst = instance_create_layer(96*0, 0, "Clouds", obj_Cloud);
+		var _inst = instance_create_layer(96*0, irandom_range(-10, 10), "Clouds", obj_Cloud);
 		_inst.image_index = irandom_range(0, 2);
 	}
 	
@@ -37,7 +37,7 @@ if (not global.paused) {
 		cooldowntimer++;
 	}
 
-	// Summon Enemies
+	// Next Round
 
 	if (global.enemyCRSpawned >= global.roundChallengeRating and instance_number(obj_Enemy) == 0) {
 		audio_play_sound(snd_RoundEnd, 1, false);
@@ -46,26 +46,44 @@ if (not global.paused) {
 		global.roundNum++;
 		global.enemyCRSpawned = 0;
 		global.roundChallengeRating = round(global.roundChallengeRating * 1.2);
-	
-		switch (global.roundNum) {
-			case 1:
-				array_push(global.summonableEnemies, enemytypes.legs);
-				break;
-			case 2:
-				array_push(global.summonableEnemies, enemytypes.wings);
-				break;
-			case 5:
-				array_push(global.summonableEnemies, enemytypes.howl);
-				break;
-			case 10:
-				array_push(global.summonableEnemies, enemytypes.buig);
-				break;
-				
-		}
 		
-		global.summonTimeMod[0] -= 0.1;
-		global.summonTimeMod[1] -= 0.1;
+		with (obj_Npc) {
+			initNpc(randomNpc());
+			text = "";
+			textIndex = 1;
+			dialogueIndex = 0;
+		}
+		roundCheck = false;
 	}
+	
+	
+	// Check if round switched
+	
+	if (not roundCheck) {
+		roundCheck = true;
+		print(lastRound, global.roundNum, abs(lastRound - global.roundNum))
+		for (var i = 0; i < abs(lastRound - global.roundNum); i++) {
+			
+			add_enemy(1, EnemyType.legs);
+			add_enemy(2, EnemyType.wings);
+			add_enemy(5, EnemyType.howl);
+			add_enemy(10, EnemyType.buig);
+		
+			if (global.roundNum % 10 == 0 and lastRound > global.roundNum) {
+				if (global.currentSeason < 3) {
+					global.currentSeason += 1;
+				}
+				else {
+					global.currentSeason = Season.wet;
+				}
+			}
+		
+			global.summonTimeMod[0] -= 0.1 * sign(lastRound - global.roundNum);
+			global.summonTimeMod[1] -= 0.1 * sign(lastRound - global.roundNum);
+		}
+	}
+
+	// Summon Enemies
 
 	summontimer--;
 	if (summontimer <= 0 and instance_number(obj_Enemy) < 10 and roundtimer >= room_speed*20) {
@@ -98,3 +116,5 @@ if (not global.paused) {
 else {
 	sprite_set_speed(spr_Wheel, 0, spritespeed_framespersecond);
 }
+
+lastRound = global.roundNum;

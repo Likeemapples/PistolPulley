@@ -1,13 +1,5 @@
 randomize();
 
-enum Season {
-	wet,
-	hot,
-	wind,
-	cold,
-	none
-}
-
 function Build(array) constructor {
 	args = [];
 	bDmg = 0;

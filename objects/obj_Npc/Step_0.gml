@@ -1,7 +1,16 @@
 /// @desc ??
 
-if (npc.image == 0) { image_alpha -= 0.01; }
-else { image_index = npc.image; }
+if (npc.image == 0) { 
+	if (image_alpha > 0) { 
+		image_alpha -= 0.01; 
+	}
+}
+else { 
+	image_index = npc.image; 
+	if (image_alpha < 1) {
+		image_alpha += 0.01;
+	}
+}
 
 if (not global.paused) {
 
@@ -31,12 +40,6 @@ if (not global.paused) {
 				
 					exchange();
 				
-					dialogue = [thanks];
-					text = "";
-					textIndex = 1;
-					dialogueIndex = 0;
-				
-					initNpc(new None(self));
 				}
 	
 			}
@@ -75,7 +78,7 @@ if (not global.paused) {
 		// Next line of dialogue
 		if (not _touchingYes and not _touchingNo 
 			and mouse_check_button_pressed(mb_any) 
-			and not dialogueIndex == array_length(dialogue)-1) 
+			and dialogueIndex != array_length(dialogue)-1) 
 		{
 			text = "";
 			textIndex = 1;
