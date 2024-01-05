@@ -13,7 +13,7 @@ enum NpcType {
 	MonsterKid, // Distantly related to AmanStir
 	TheBallSlicer, // SLICE YOUR BALLS
 	TrouterWilds, // Space Fisher, plays the synth
-	Hamilton,
+	Hamilton, // Ms. Piggy
 	WindowYouSpellMarius,
 	Squid
 }
