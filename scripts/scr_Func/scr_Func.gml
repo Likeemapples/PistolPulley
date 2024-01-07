@@ -13,6 +13,7 @@ global.summonTimeMod = [2,3];
 global.enemyCRSpawned = 0;
 global.roundChallengeRating = 10;
 global.roundNum = 0;
+
 global.currentSeason = Season.hot;
 
 global.paused = false;

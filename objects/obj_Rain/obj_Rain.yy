@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_Rain",
   "spriteId": {
-    "name": "spr_Particles",
-    "path": "sprites/spr_Particles/spr_Particles.yy",
+    "name": "spr_Rain",
+    "path": "sprites/spr_Rain/spr_Rain.yy",
   },
   "solid": false,
   "visible": true,

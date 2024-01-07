@@ -21,7 +21,7 @@ if (global.paused) {
 		global.money += 25;
 	}
 }
-else { depth = 0 }
+else { depth = 0; }
 
 for (var i = 0; i < array_length(draw_tasks); i++) {
 	var _draw = draw_tasks[i]

@@ -61,7 +61,6 @@ if (not global.paused) {
 	
 	if (not roundCheck) {
 		roundCheck = true;
-		print(lastRound, global.roundNum, abs(lastRound - global.roundNum))
 		for (var i = 0; i < abs(lastRound - global.roundNum); i++) {
 			
 			add_enemy(1, EnemyType.legs);
@@ -69,14 +68,66 @@ if (not global.paused) {
 			add_enemy(5, EnemyType.howl);
 			add_enemy(10, EnemyType.buig);
 		
-			if (global.roundNum % 10 == 0 and lastRound > global.roundNum) {
+			if (global.roundNum % 1 == 0) {
 				if (global.currentSeason < 3) {
 					global.currentSeason += 1;
 				}
 				else {
 					global.currentSeason = Season.wet;
 				}
+				
+				
+				layer_set_visible(layer_get_id("Cold"), false);
+				layer_set_visible(layer_get_id("Wet"), false);
+				
+				switch (global.currentSeason) {
+					case Season.hot:
+						var lay_id = layer_get_id("Assets_1");
+						var spr_id = layer_sprite_get_id(lay_id, "graphic_23624226");
+						layer_sprite_index(spr_id, 0);
+						
+						var _lay_id = layer_get_id("Background");
+						var _back_id = layer_background_get_id(_lay_id);
+						layer_background_blend(_back_id, make_color_rgb(113, 198, 232));
+						
+						break;
+					case Season.wind:
+						var lay_id = layer_get_id("Assets_1");
+						var spr_id = layer_sprite_get_id(lay_id, "graphic_23624226");
+						layer_sprite_index(spr_id, 4);
+						
+						var _lay_id = layer_get_id("Background");
+						var _back_id = layer_background_get_id(_lay_id);
+						layer_background_blend(_back_id, make_color_rgb(187, 180, 160));
+						
+						break;
+					case Season.cold:
+						var lay_id = layer_get_id("Assets_1");
+						var spr_id = layer_sprite_get_id(lay_id, "graphic_23624226");
+						layer_sprite_index(spr_id, 3);
+						
+						var _lay_id = layer_get_id("Background");
+						var _back_id = layer_background_get_id(_lay_id);
+						layer_background_blend(_back_id, make_color_rgb(26, 46, 53));
+					
+						layer_set_visible(layer_get_id("Cold"), true);
+						
+						break;
+					case Season.wet:
+						var lay_id = layer_get_id("Assets_1");
+						var spr_id = layer_sprite_get_id(lay_id, "graphic_23624226");
+						layer_sprite_index(spr_id, 5);
+						
+						var _lay_id = layer_get_id("Background");
+						var _back_id = layer_background_get_id(_lay_id);
+						layer_background_blend(_back_id, make_color_rgb(5, 171, 235));
+						
+						layer_set_visible(layer_get_id("Wet"), true);
+						
+						break;
+				}
 			}
+			print(global.currentSeason);
 		
 			global.summonTimeMod[0] -= 0.1 * sign(lastRound - global.roundNum);
 			global.summonTimeMod[1] -= 0.1 * sign(lastRound - global.roundNum);
