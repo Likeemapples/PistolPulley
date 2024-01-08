@@ -6,7 +6,7 @@ if (not global.paused) {
 		ball.args[i].qose(self);	
 	}
 	deathtimer--;
-	if (deathtimer <= 0) instance_destroy(self);
+	if (deathtimer <= 0) { instance_destroy(self); }
 }
 
 if (not place_meeting(x,y+1,obj_Floor)) {

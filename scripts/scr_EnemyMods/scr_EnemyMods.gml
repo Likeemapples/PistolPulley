@@ -14,7 +14,7 @@ function Enemy() constructor {
 	hp = 15;
 	legs = true;
 	cr = 1;
-	enemyId = enemytypes.normal;
+	enemyId = EnemyType.normal;
 	
 	update = function() {}
 	draw = function() {}
@@ -25,7 +25,7 @@ function Normal() : Enemy() constructor {
 	hp = 2.5;
 	legs = false;
 	cr = 1;
-	enemyId = enemytypes.normal;
+	enemyId = EnemyType.normal;
 	
 	startclimb = false;
 	destx = irandom_range(96+17,96+77)
@@ -63,7 +63,7 @@ function Wings() : Enemy() constructor {
 	hp = 1.25;
 	legs = false
 	cr = 1;
-	enemyId = enemytypes.wings;
+	enemyId = EnemyType.wings;
 	
 	// Go left and right while slowly climbing up
 	dir = 1;
@@ -93,7 +93,7 @@ function Legs() : Enemy() constructor {
 	spd = 0.125;
 	hp = 5;
 	cr = 1;
-	enemyId = enemytypes.legs;
+	enemyId = EnemyType.legs;
 	
 	dir = 1;
 	setup = false;
@@ -126,7 +126,7 @@ function Legs() : Enemy() constructor {
 			with (me) {
 				var _inst = instance_place(x,y,obj_Enemy);
 				if (_inst != noone) {
-					if (_inst.enemyId != enemytypes.legs and _inst.enemyId != enemytypes.buig) {
+					if (_inst.enemyId != EnemyType.legs and _inst.enemyId != EnemyType.buig) {
 						_inst.y -= 1;
 					}
 				}
@@ -152,7 +152,7 @@ function Buig() : Enemy() constructor {
 	spd = 0.25;
 	hp = 25;
 	cr = 2;
-	enemyId = enemytypes.buig;
+	enemyId = EnemyType.buig;
 	
 	dir = 1;
 	setup = false;
@@ -184,13 +184,17 @@ function Howl() : Enemy() constructor {
 	hp = 0.5;
 	legs = false;
 	cr = 2;
-	enemyId = enemytypes.howl;
+	enemyId = EnemyType.howl;
 	
 	startclimb = false;
 	destx = irandom_range(96+17,96+77)
 	setup = false;
+	springTimer = room_speed/2;
 	update = function(me) {
 		if (not setup) {
+			me.sprite_index = spr_Howl;
+			me.image_xscale = 1;
+			me.image_yscale = 1;
 			me.x = irandom_range(96+17,96+77);
 			me.y = 80;
 		}
@@ -201,16 +205,22 @@ function Howl() : Enemy() constructor {
 		else {
 			if (me.x != destx) {
 				me.x += -sign(me.x - destx);
-				me.image_index = 0;
-				me.image_speed = 0;
+				me.image_speed = 1;
+				if (me.image_index > 1.9) {
+					me.image_index = 0;
+				}
 			}
 			else startclimb = true;
 
 			if (startclimb) {
-				me.y -= spd;
-				me.image_speed = 1;
-				with (me) {
-					animate_range(1,2);
+				if (springTimer > 0) {
+					springTimer --;
+					me.image_index = 2;
+				}
+				else {
+					me.y -= spd;
+					me.sprite_index = spr_HowlShoot;
+					me.image_speed = 0;
 				}
 			}
 		}

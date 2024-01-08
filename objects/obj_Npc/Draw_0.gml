@@ -5,8 +5,10 @@ draw_self();
 
 draw_sprite(spr_Textbox, 0, 48, 72);
 
-draw_sprite_ext(spr_Buttons, 0, 16, 32, yesSize, yesSize, 0, -1, 1);
-draw_sprite_ext(spr_Buttons, 1, 80, 32, noSize, noSize, 0, -1, 1);
+if (npc.image != 0) {
+	draw_sprite_ext(spr_Buttons, yesSize, 18, 32, 1, 1, 0, -1, 1);
+	draw_sprite_ext(spr_Buttons, noSize, 76, 32, 1, 1, 0, -1, 1);
+}
 
 
 draw_set_valign(fa_bottom);
